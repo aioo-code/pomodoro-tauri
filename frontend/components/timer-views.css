@@ -1,0 +1,63 @@
+.timer-carousel { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; margin-top:10px; }
+.timer-view-arrow { width:44px; height:44px; padding:12px; color:var(--muted-foreground); background:transparent !important; border:0; border-radius:var(--corner-sm); }
+.timer-view-arrow svg { width:16px; height:16px; stroke-width:1.5; }
+.timer-view-arrow:hover,.timer-view-arrow:focus-visible { color:var(--accent-ink); }
+.app-shell:not(.is-mini) .timer-carousel .clock-section { width:100%; max-width:216px; height:auto; aspect-ratio:1; margin:0 auto; container-type:inline-size; }
+.app-shell:not(.is-mini) .timer-carousel .timer-ring { width:100%; height:100%; }
+.timer-view,.timer-view-input { width:100%; height:100%; }
+.timer-view { position:relative; touch-action:none; border-radius:50%; }
+.timer-view-art { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; overflow:visible; }
+.timer-view[data-view]:not([data-view="comet"]) .comet-dial { opacity:0; }
+.timer-view:not([data-pointer-used]):has(.comet-dial__ring:focus-visible) { outline:1px solid var(--ring); outline-offset:3px; }
+.view-track { stroke:color-mix(in srgb,var(--foreground) 11%,transparent); }
+.view-progress { stroke:var(--clock-accent); }
+.timer-carousel .clock-section .time-composition { gap:8px; }
+.timer-carousel .clock-section .time-minutes { font-size:clamp(34px,31cqi,68px); letter-spacing:-.035em; }
+.timer-carousel .clock-section .time-seconds { font-size:clamp(22px,16cqi,35px); letter-spacing:-.02em; }
+.timer-carousel .clock-section .time-digits[data-length="long"] .time-minutes { font-size:clamp(22px,21cqi,46px); }
+.time-composition[data-layout="stacked"] { flex-direction:column; gap:0; }
+.app-shell:not(.is-mini) .timer-carousel [data-timer-style="orbit"] .clock-face { padding-bottom:15px; }
+.app-shell:not(.is-mini) .timer-carousel [data-timer-style="orbit"] .time-composition { gap:2px; }
+.app-shell:not(.is-mini) .timer-carousel [data-timer-style="orbit"] .time-minutes { font-size:clamp(32px,28cqi,62px); }
+.app-shell:not(.is-mini) .timer-carousel [data-timer-style="orbit"] .time-seconds { font-size:clamp(18px,12cqi,26px); }
+.app-shell:not(.is-mini) [data-timer-style="orbit"] .clock-status { top:77%; }
+.app-shell:not(.is-mini) [data-timer-style="arc"] .clock-status { top:calc(50% - 8px); font-size:13px; }
+.app-shell:not(.is-mini) .timer-carousel [data-timer-style="digits"] .clock-face { padding-bottom:22px; }
+.app-shell:not(.is-mini) .timer-carousel [data-timer-style="digits"] .time-minutes { font-size:clamp(40px,38cqi,82px); letter-spacing:-.065em; }
+.app-shell:not(.is-mini) .timer-carousel [data-timer-style="digits"] .time-seconds { align-self:flex-end; font-size:clamp(20px,14cqi,30px); padding-bottom:5px; }
+.app-shell:not(.is-mini) [data-timer-style="digits"] .clock-status { top:78%; }
+.app-shell:not(.is-mini) .dial-hint { display:flex; justify-content:center; align-items:center; gap:6px; }
+.timer-style-name { color:var(--foreground); }
+.timer-view-effect { position:absolute; inset:0; pointer-events:none; }
+.quiet-halo .status-mark,.quiet-halo .status-mark__glyph { width:100%;height:100%; }
+.quiet-halo .status-mark__track { stroke:var(--foreground);stroke-opacity:.07 !important; }
+.quiet-halo .status-mark__ring { filter:drop-shadow(0 0 3px color-mix(in srgb,var(--clock-accent) 15%,transparent)); }
+.liquid-clock { inset:9%; border:1px solid color-mix(in srgb,var(--foreground) 9%,transparent); border-radius:50%; }
+.liquid-clock::before { content:"";position:absolute;inset:4px;border-radius:50%;border:1px solid color-mix(in srgb,var(--foreground) 3%,transparent); }
+.liquid-clock .slosh-gauge { width:100%;height:100%;border-radius:50%;background:color-mix(in srgb,var(--foreground) 2%,transparent); }
+.liquid-clock .slosh-gauge__liquid { background:linear-gradient(180deg,color-mix(in srgb,var(--clock-accent) 24%,transparent),color-mix(in srgb,var(--clock-accent) 9%,transparent)); }
+.liquid-clock .slosh-gauge__marker,.liquid-clock .slosh-gauge__ticks { display:none; }
+.precision-track,.precision-progress { fill:none;stroke-width:1; }
+.precision-track { stroke-opacity:.45; }
+.precision-progress { stroke-opacity:.7;stroke-linecap:round; }
+.is-mini .timer-carousel { display:contents; }
+.app-shell:not(.is-mini) .timer-carousel .clock-section { max-width:clamp(112px,calc(100dvh - 330px),216px); }
+.app-shell:not(.is-mini) .timer-carousel .clock-face { padding-bottom:28px; }
+.app-shell:not(.is-mini) .timer-carousel .clock-status { top:auto;bottom:clamp(6px,calc(12cqi - 4px),20px);margin:0;line-height:18px; }
+.app-shell:not(.is-mini) .timer-carousel [data-timer-style="arc"] .clock-status { top:50%;bottom:auto;transform:translateY(-50%); }
+.app-shell:not(.is-mini) .dial-hint { margin:6px 0 0;height:18px;line-height:18px; }
+@media (max-height:500px) and (min-width:330px) { .timer-carousel { margin-top:6px; } }
+@media (max-width:330px) { .timer-carousel { grid-template-columns:36px minmax(0,1fr) 36px; } .timer-view-arrow { width:36px; padding:10px; } .timer-carousel .clock-status { font-size:9px; } }
+
+.app-shell:not(.is-mini) .timer-carousel .clock-section { max-width:clamp(112px,calc(100dvh - 362px),216px); }
+.app-shell:not(.is-mini) .timer-carousel .clock-face { padding:0; }
+.app-shell:not(.is-mini) .timer-carousel [data-timer-style="orbit"] .clock-face { padding:0;transform:translateY(10%); }
+.app-shell:not(.is-mini) .timer-caption { display:flex;flex-direction:column;align-items:center;gap:8px;min-height:38px;margin-top:8px; }
+.app-shell:not(.is-mini) .timer-caption .clock-status { position:static;inset:auto;margin:0;min-height:16px;font-size:10px;line-height:16px;transform:none; }
+.app-shell:not(.is-mini) .timer-caption .dial-hint { margin:0;height:14px;font-size:9px;line-height:14px; }
+.droplet-clock { inset:0;border:0;border-radius:0; }
+.droplet-clock::before { display:none; }
+.drop-liquid { position:absolute;inset:0; }
+.droplet-clock .slosh-gauge { border-radius:0; }
+.drop-outline { position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1; }
+.drop-outline > path { fill:none;stroke:color-mix(in srgb,var(--foreground) 16%,transparent);stroke-width:.6; }

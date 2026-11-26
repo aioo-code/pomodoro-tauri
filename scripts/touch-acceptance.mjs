@@ -1,0 +1,145 @@
+import { chromium } from 'playwright-core';
+import { spawn } from 'node:child_process';
+import { createServer } from 'node:net';
+import { once } from 'node:events';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { createHash, randomUUID } from 'node:crypto';
+import { setTimeout as delay } from 'node:timers/promises';
+import assert from 'node:assert/strict';
+import path from 'node:path';
+import { root, env } from './environment.mjs';
+
+const build=JSON.parse(readFileSync(path.join(root,'tmp/settings-build-current.json')));
+const exe=path.join(build.output,'pomodoro-connected.exe');
+const evidence=path.join(build.output,'acceptance','touch-'+randomUUID());mkdirSync(evidence,{recursive:true});
+const results=[],errors=[],tracking=[];let child,browser,page,reminder;
+const invoke=(command,args)=>page.evaluate(({command,args})=>window.__TAURI__.core.invoke(command,args),{command,args});
+const desktop=()=>invoke('desktop_state');
+async function wait(check,label,timeout=12000){const end=Date.now()+timeout;while(Date.now()<end){if(await check())return;await delay(50);}throw Error('Timed out: '+label);}
+function mark(text){results.push(text);console.log(text);}
+async function launch(){
+ const server=createServer();server.listen(0,'127.0.0.1');await once(server,'listening');const port=server.address().port;await new Promise(resolve=>server.close(resolve));
+ child=spawn(exe,['--qa-hidden','--qa-seconds=2','--qa-show-reminders','--qa-preferences-file='+path.join(evidence,'preferences.json'),'--tool-data-dir='+path.join(evidence,'tool-state')],{cwd:evidence,env:{...env,WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS:`--remote-debugging-port=${port} --remote-debugging-address=127.0.0.1`},windowsHide:true,stdio:['ignore','pipe','pipe']});
+ let logs='';child.stderr.on('data',b=>logs+=b);child.stdout.on('data',b=>logs+=b);
+ await wait(async()=>{if(child.exitCode!==null)throw Error(logs);try{return(await fetch(`http://127.0.0.1:${port}/json/version`)).ok;}catch{return false;}},'launch',40000);
+ browser=await chromium.connectOverCDP(`http://127.0.0.1:${port}`);
+ await wait(()=>{const pages=browser.contexts().flatMap(c=>c.pages());page=pages.find(p=>/tauri\.localhost/.test(p.url())&&!p.url().includes('reminder'));reminder=pages.find(p=>p.url().includes('reminder'));return page&&reminder;},'WebViews');
+ for(const p of[page,reminder])p.on('pageerror',e=>errors.push(e.message));
+ await page.waitForFunction(()=>document.getElementById('toggle')&&!document.getElementById('toggle').disabled&&document.documentElement.dataset.accent);
+}
+async function close(){if(child?.exitCode===null){const exited=once(child,'exit');await invoke('desktop_action',{action:'quit'}).catch(()=>{});await Promise.race([exited,delay(8000)]);if(child.exitCode===null)throw Error('Owned QA shutdown incomplete');}await browser?.close().catch(()=>{});}
+try{
+ await launch();
+ const originalShell=(await desktop()).widget;assert.equal(originalShell.toolWindow,false);
+ await invoke('desktop_action',{action:'mini'});await page.waitForFunction(()=>document.body.classList.contains('mini'));
+ assert.equal((await desktop()).widget.toolWindow,true);assert.equal((await desktop()).widget.appWindow,false);
+ assert.equal(await page.locator('.titlebar').count(),0);
+ assert.equal(await page.locator('button:visible').count(),3);
+ const beforeView=await invoke('snapshot');
+ await page.locator('.mini-time-control').evaluate(el=>el.click());
+ await page.waitForFunction(()=>document.querySelector('.mini-time-control').dataset.view==='progress');
+ assert.equal((await invoke('snapshot')).revision,beforeView.revision,'view toggle must not mutate timer');
+ assert.equal(await page.locator('.mini-progress').getAttribute('data-remaining'),'1','ready starts with a full remaining bar');
+ await invoke('action',{action:'start'});await delay(500);await invoke('action',{action:'pause'});
+ await page.waitForFunction(()=>{const bars=[...document.querySelectorAll('.mini-progress .wake-slider__bar')],lit=bars.filter(bar=>bar.dataset.on==='true').length;return lit>0&&lit<bars.length;});
+ const pausedView=await invoke('snapshot');
+ const expectedRemaining=pausedView.remainingMs/pausedView.durationMs;
+ await wait(()=>page.locator('.mini-progress').getAttribute('data-remaining').then(value=>Math.abs(Number(value)-expectedRemaining)<.0001),'mini remaining fraction');
+ assert.ok(expectedRemaining<1&&expectedRemaining>0);
+ await page.screenshot({path:path.join(evidence,'mini-progress.png'),animations:'disabled'});
+ await page.locator('.mini-time-control').focus();await page.keyboard.press('Enter');
+ await page.waitForFunction(()=>document.querySelector('.mini-time-control').dataset.view==='digits');
+ assert.equal((await invoke('snapshot')).revision,pausedView.revision,'keyboard view change must preserve paused clock');
+ await page.locator('#mini').evaluate(el=>el.click());await page.waitForFunction(()=>document.querySelector('.timer-ring'));
+ assert.equal(Number(await page.locator('.timer-ring').getAttribute('data-remaining')),expectedRemaining,'main and mini share the remaining fraction');
+ assert.equal(await page.locator('.comet-dial__ring').getAttribute('aria-disabled'),null);
+ assert.ok(Number(await page.locator('.comet-dial__ring').getAttribute('aria-valuenow'))>=0);
+ await page.locator('#mini').evaluate(el=>el.click());await page.waitForFunction(()=>document.querySelector('.mini-time-control'));
+ await invoke('action',{action:'reset'});
+ mark('Ready starts full; main ring and mini bar share the exact decreasing remaining fraction; tap/keyboard view switches preserve timer state');
+ let d=await desktop();
+ assert.ok(Math.abs(d.widget.frame.x+d.widget.frame.width-d.workX-d.workWidth+Math.round(12*d.scale))<=1,JSON.stringify(d));
+ assert.ok(Math.abs(d.widget.frame.y+d.widget.frame.height-d.workY-d.workHeight+Math.round(12*d.scale))<=1);
+ await invoke('set_preferences',{patch:{snapToEdges:false,dimInactive:true,miniOpacity:50}});await invoke('widget_activity',{inside:false});
+ await wait(async()=>{const s=await desktop();return s.widget.effectiveOpacity===(s.focused?50:30);},'native inactive alpha');
+ assert.equal((await desktop()).visible,false,'opacity must not show/activate hidden main');
+ await invoke('widget_activity',{inside:true});assert.equal((await desktop()).widget.effectiveOpacity,50);
+ await invoke('set_preferences',{patch:{miniOpacity:100,dimInactive:false}});
+ assert.equal((await desktop()).widget.effectiveOpacity,100);
+ mark('Visible frame keeps a 12-DIP work-area inset; actual native opacity and inactive/hover restoration read back correctly');
+ d=await desktop();const center={x:Math.round(d.workX+(d.workWidth-d.outerWidth)/2),y:Math.round(d.workY+(d.workHeight-d.outerHeight)/2)};
+ await invoke('drag_to',center);
+ const cdp=await page.context().newCDPSession(page);await cdp.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:2});
+ await page.evaluate(()=>{window.__touchTrace=[];for(const name of ['pointerdown','pointermove','pointerup','pointercancel'])document.addEventListener(name,event=>{if(event.pointerType==='touch')window.__touchTrace.push({type:event.type,x:event.screenX,y:event.screenY,cx:event.clientX,cy:event.clientY,primary:event.isPrimary});},true);});
+ await delay(100);
+ const rect=await page.locator('.clock-section').boundingBox();const point={x:rect.x+rect.width/2,y:rect.y+rect.height/2};
+ assert.equal(await page.locator('.clock-section').evaluate(el=>getComputedStyle(el).touchAction),'none');
+ const start=await desktop();
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{id:1,x:point.x,y:point.y,radiusX:8,radiusY:8,force:1}]});
+ const distance=-70,steps=14;
+ for(let i=1;i<=steps;i++){
+   const current=await desktop();const delta=distance*i/steps;
+   await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{id:1,x:point.x+delta-(current.x-start.x)/start.scale,y:point.y-(current.y-start.y)/start.scale,radiusX:8,radiusY:8,force:1}]});
+   await delay(25);const moved=await desktop();tracking.push({step:i,desiredX:start.x+delta*start.scale,actualX:moved.x,scale:moved.scale});
+ }
+ const during=await desktop();
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+ await wait(async()=>!(await desktop()).widget.dragging,'touch released');
+ const trace=await page.evaluate(()=>window.__touchTrace);
+ writeFileSync(path.join(evidence,'touch-tracking.json'),JSON.stringify({start,during,after:await desktop(),tracking,trace},null,2));
+ assert.equal(trace.filter(e=>e.type==='pointercancel').length,0,'browser panning must not cancel the drag');
+ assert.equal(await page.locator('.mini-time-control').getAttribute('data-view'),'digits','dragging time must not toggle the view');
+ const tapBox=await page.locator('.mini-time-control').boundingBox();
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{id:2,x:tapBox.x+tapBox.width/2,y:tapBox.y+tapBox.height/2,radiusX:8,radiusY:8,force:1}]});
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+ await page.waitForFunction(()=>document.querySelector('.mini-time-control').dataset.view==='progress');
+ await page.reload();await page.waitForFunction(()=>document.querySelector('.mini-time-control')?.dataset.view==='progress');
+ await page.locator('.mini-time-control').evaluate(el=>el.click());
+ await page.waitForFunction(()=>document.querySelector('.mini-time-control').dataset.view==='digits');
+ assert.ok(Math.abs(during.x-start.x)/start.scale>=50,'window must follow before release');
+ assert.ok(Math.abs((await desktop()).x-start.x-distance*start.scale)<=12,'final pointer/window displacement agrees');
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight),true,'touch targets fit mini viewport');
+ await page.screenshot({path:path.join(evidence,'mini-touch.png'),animations:'disabled'});
+ mark('Chromium touch stream moves the real window during the gesture without pointer cancellation; coarse layout fits');
+ const origin=await desktop(),gesture=randomUUID();
+ const update=(sequence,x,finish=false)=>invoke('drag_update',{gesture,sequence,startX:0,startY:0,x,y:0,finish,cancelled:false});
+ await update(3,20);await update(2,100);assert.ok(Math.abs((await desktop()).x-origin.x-20*origin.scale)<=1);
+ await update(4,40,true);const ended=await desktop();await update(99,150);assert.equal((await desktop()).x,ended.x);assert.equal((await desktop()).widget.dragging,false);
+ await invoke('set_preferences',{patch:{snapToEdges:true}});
+ d=await desktop();await invoke('drag_to',{x:Math.round(d.x+d.workX+d.workWidth-d.widget.frame.width-8*d.scale-d.widget.frame.x),y:Math.round(d.y+d.workY+8*d.scale-d.widget.frame.y)});
+ await invoke('drag_update',{gesture:randomUUID(),sequence:1,startX:0,startY:0,x:0,y:0,finish:true,cancelled:false});
+ d=await desktop();assert.ok(Math.abs(d.widget.frame.x+d.widget.frame.width-d.workX-d.workWidth+Math.round(12*d.scale))<=1);assert.ok(Math.abs(d.widget.frame.y-d.workY-Math.round(12*d.scale))<=1);
+ mark('Out-of-order and post-release frames cannot regress position; release near edges snaps correctly');
+ assert.equal((await desktop()).widget.toolWindow,true);assert.equal((await desktop()).widget.appWindow,false);
+ await page.locator('#mini').evaluate(el=>el.click());await page.waitForFunction(()=>!document.body.classList.contains('mini'));assert.equal((await desktop()).widget.effectiveOpacity,100);
+ assert.equal((await desktop()).widget.toolWindow,originalShell.toolWindow);assert.equal((await desktop()).widget.appWindow,originalShell.appWindow);
+ for(let index=0;index<3;index++) {await invoke('desktop_action',{action:'mini'});assert.equal((await desktop()).widget.toolWindow,true);await invoke('desktop_action',{action:'pin'});assert.equal((await desktop()).widget.toolWindow,true);await invoke('desktop_action',{action:'mini'});assert.equal((await desktop()).widget.toolWindow,false);assert.equal((await desktop()).widget.appWindow,originalShell.appWindow);}
+ mark('Mini uses native tool-window style without APPWINDOW; full mode restores original shell flags after repeated mode/pin switches');
+ await cdp.send('Emulation.setTouchEmulationEnabled',{enabled:false});
+ await cdp.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:2});
+ assert.equal(await page.locator('.presets').evaluate(el=>el.clientHeight>=Math.max(...[...el.querySelectorAll('button')].map(button=>button.offsetHeight))&&el.scrollHeight<=el.clientHeight),true,'coarse presets have no vertical overflow or clipped targets');
+ await cdp.send('Emulation.setTouchEmulationEnabled',{enabled:false});
+ await invoke('set_preferences',{patch:{cornerRadius:0}});
+ await wait(()=>page.evaluate(()=>document.documentElement.dataset.cornerRadius==='0'),'zero radius in main');
+ await page.locator('#settings').evaluate(el=>el.click());
+ await page.waitForFunction(()=>[...document.querySelectorAll('.window-button')].every(el=>getComputedStyle(el).borderRadius==='0px'));
+ const selectors=['.rubber-segment','.rubber-segment__item','.jelly-radio__skin','.timer-fuse','#direction','.window-button','.mode-tabs','[role="tab"]','#toggle','#reset','.presets button','#add-duration','.setting-switch','.setting-switch span','.accent-choice','.icon-choice','.appearance-options','.appearance-options button','.position-grid','.position-choice','.duration-editor','.duration-form input','.duration-form-actions button','.duration-item-actions button'];
+ const radii=await page.evaluate(selectors=>selectors.flatMap(selector=>[...document.querySelectorAll(selector)].map(el=>({selector,radius:getComputedStyle(el).borderRadius}))),selectors);
+ assert.ok(radii.every(({radius})=>radius.split(/[ /]/).filter(Boolean).every(n=>parseFloat(n)===0)),JSON.stringify(radii.filter(({radius})=>parseFloat(radius)!==0)));
+ assert.equal(await page.locator('#setting-radius').evaluate(el=>getComputedStyle(el,'::-webkit-slider-thumb').borderRadius),'0px');
+ await page.screenshot({path:path.join(evidence,'square-controls.png'),animations:'disabled'});
+ await page.locator('#settings-back').evaluate(el=>el.click());
+ await invoke('action',{action:'start'});await wait(async()=>(await desktop()).reminderVisible,'real completion reminder');
+ await reminder.waitForFunction(()=>document.getElementById('dismiss')&&!document.getElementById('dismiss').disabled);
+ await wait(()=>reminder.evaluate(()=>document.documentElement.dataset.cornerRadius==='0'),'zero radius in reminder');
+ assert.equal(await reminder.locator('#dismiss').evaluate(el=>getComputedStyle(el).borderRadius),'0px');
+ for(const size of[{width:360,height:420},{width:360,height:300},{width:270,height:203},{width:180,height:150}]){
+   await reminder.setViewportSize(size);await reminder.screenshot({path:path.join(evidence,`reminder-${size.width}x${size.height}.png`),animations:'disabled'});
+   assert.equal(await reminder.evaluate(()=>{const b=document.getElementById('dismiss').getBoundingClientRect(),x=document.getElementById('close-reminder').getBoundingClientRect();return b.top>=0&&b.bottom<=innerHeight&&b.left>=0&&b.right<=innerWidth&&x.right<=innerWidth&&document.documentElement.scrollHeight<=innerHeight;}),true,'reminder actions fit '+JSON.stringify(size));
+ }
+ await reminder.locator('#dismiss').evaluate(el=>el.click());await wait(async()=>!(await desktop()).reminderVisible,'manual close');
+ mark('Every rectangular control honors zero radius; completion close actions stay visible at normal and enlarged/small viewports');
+ assert.deepEqual(errors,[]);await close();
+ const result={passed:true,version:build.version,sha256:createHash('sha256').update(readFileSync(exe)).digest('hex'),results,errors,evidence,limits:['Touch uses real Chromium touch events into the native app; physical touchscreen latency/feel and multi-DPI hardware are not certified.']};
+ writeFileSync(path.join(build.output,'acceptance/touch-result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));
+}catch(error){writeFileSync(path.join(evidence,'failure.json'),JSON.stringify({error:String(error),stack:error.stack,results,errors,tracking},null,2));try{await close();}catch{}throw error;}

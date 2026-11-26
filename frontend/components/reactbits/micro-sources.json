@@ -1,0 +1,103 @@
+{
+  "source": "React Bits official registry",
+  "at": "2026-11-06T10:17:06.013Z",
+  "files": [
+    {
+      "component": "CometDial",
+      "file": "CometDial.tsx",
+      "url": "https://reactbits.dev/r/CometDial-TS-CSS.json",
+      "sha256": "96a495a64c3b7e0fc3d4a908c9f3c95be248bb5277469d0d0cc946ac89b63559"
+    },
+    {
+      "component": "CometDial",
+      "file": "CometDial.css",
+      "url": "https://reactbits.dev/r/CometDial-TS-CSS.json",
+      "sha256": "428afc3fcf354f50aa21fc422755f88828fa8e0c1bc0f054b443c95630bc7197"
+    },
+    {
+      "component": "FuseButton",
+      "file": "FuseButton.tsx",
+      "url": "https://reactbits.dev/r/FuseButton-TS-CSS.json",
+      "sha256": "0992b0173f5e26957e5e352cc232375d47277fc77583ff6736ef9a4fc7776650"
+    },
+    {
+      "component": "FuseButton",
+      "file": "FuseButton.css",
+      "url": "https://reactbits.dev/r/FuseButton-TS-CSS.json",
+      "sha256": "ed717d854b5730eda1b759f96602e234215f7265883b2ec91b99915e14e65b71"
+    },
+    {
+      "component": "JellyRadio",
+      "file": "JellyRadio.tsx",
+      "url": "https://reactbits.dev/r/JellyRadio-TS-CSS.json",
+      "sha256": "03656d5aed4cbc70b3e47f0874bbca65262224a07038aa9235d867376a1c7c34"
+    },
+    {
+      "component": "JellyRadio",
+      "file": "JellyRadio.css",
+      "url": "https://reactbits.dev/r/JellyRadio-TS-CSS.json",
+      "sha256": "3412e68536d0107fbae6f858a0582afd733e9cea3066d38b0c86619b19ae08e0"
+    },
+    {
+      "component": "RubberSegment",
+      "file": "RubberSegment.tsx",
+      "url": "https://reactbits.dev/r/RubberSegment-TS-CSS.json",
+      "sha256": "69d1cc3af5718faaf5d1d9a9fdab59edb26f05ea61d5c85694edd1e51664d88f"
+    },
+    {
+      "component": "RubberSegment",
+      "file": "RubberSegment.css",
+      "url": "https://reactbits.dev/r/RubberSegment-TS-CSS.json",
+      "sha256": "8e27a0daf7c64dc09939020db11d0461b03368763bceaaa60b88accad1b06cb4"
+    },
+    {
+      "component": "Orb",
+      "file": "Orb.css",
+      "url": "https://reactbits.dev/r/Orb-TS-CSS.json",
+      "sha256": "7f1dd853ee98801256aaba5db5bb08bd738593ea76dd42e993d1403f6887816a"
+    },
+    {
+      "component": "Orb",
+      "file": "Orb.tsx",
+      "url": "https://reactbits.dev/r/Orb-TS-CSS.json",
+      "sha256": "614e37a1f7ef06891f6cc19454c5c4872c6e42a3f3292cdf4a66c3191d99db68"
+    },
+    {
+      "component": "CountUp",
+      "file": "CountUp.tsx",
+      "url": "https://reactbits.dev/r/CountUp-TS-CSS.json",
+      "sha256": "d93f64b067bad014211427f8be17efb3f1a9574cf27d53adf0f4b611399b5963"
+    },
+    {
+      "component": "WakeSlider",
+      "file": "WakeSlider.css",
+      "url": "https://reactbits.dev/r/WakeSlider-TS-CSS.json",
+      "sha256": "2b8153f1bc069ef6974e0ba6cd5bba6e88641097562f28f0e21317d1c31106e4"
+    },
+    {
+      "component": "WakeSlider",
+      "file": "WakeSlider.tsx",
+      "url": "https://reactbits.dev/r/WakeSlider-TS-CSS.json",
+      "sha256": "87b5ce18114201dcd84008f1864ad5ea598882c0c6808e1ab0933dd6a67cbd3b"
+    },
+    {
+      "component": "ElasticSlider",
+      "file": "ElasticSlider.tsx",
+      "url": "https://raw.githubusercontent.com/DavidHDev/react-bits/14330e6963f6c5ddd773ee2af844d0630c22b958/src/ts-default/Components/ElasticSlider/ElasticSlider.tsx",
+      "sha256": "1488a72d85b292fc9c20152351c3e7a9065370586b5afa1006c6a744dc175acc",
+      "adaptation": "Native range with the official rubber stretch/active thickness concept; immediate touch tracking, local spring feedback, keyboard commit, reduced motion and user-controlled corners."
+    },
+    {
+      "component": "ElasticSlider",
+      "file": "ElasticSlider.css",
+      "url": "https://raw.githubusercontent.com/DavidHDev/react-bits/14330e6963f6c5ddd773ee2af844d0630c22b958/src/ts-default/Components/ElasticSlider/ElasticSlider.css",
+      "sha256": "d8100920e206730135f681eaca4512b468def2249f0126bd99de1e774be18ac8",
+      "adaptation": "Native range with the official rubber stretch/active thickness concept; immediate touch tracking, local spring feedback, keyboard commit, reduced motion and user-controlled corners."
+    }
+  ],
+  "adaptations": [
+    "Lucide icons in place of Hugeicons",
+    "Controlled native timer state, accessibility and reduced motion",
+    "Theme colors, corner radius and constrained desktop layout"
+  ]
+}

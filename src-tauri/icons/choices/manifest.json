@@ -1,0 +1,77 @@
+[
+  {
+    "id": "flow",
+    "label": "番茄",
+    "sourceSha256": "6554475385df7e80a0c3234fc7235a4b911ceb7ba78bb0f9c811f8ce15d1b1f7",
+    "assets": {
+      "32": {
+        "file": "flow-32.rgba",
+        "sha256": "1475371a06eb8a4f07583bbc79ee7823f5b52c6f646f0daf3660c4486821ab08"
+      },
+      "128": {
+        "file": "flow-128.rgba",
+        "sha256": "ef0fa784621c3a71cfaae2255cbd9a28599b2d4180f6daaeb9270207d3875213"
+      }
+    }
+  },
+  {
+    "id": "orbit",
+    "label": "星轨",
+    "sourceSha256": "b0297954d5d4b36b3913117eefabd3b900a010a4a084294f4b5899d8cbb1cced",
+    "assets": {
+      "32": {
+        "file": "orbit-32.rgba",
+        "sha256": "023145c5fc395b617cd7a4bba6eca2ee5a7db3dce039e07cbca1b9eccfe6e6cc"
+      },
+      "128": {
+        "file": "orbit-128.rgba",
+        "sha256": "4cb8aeafb9c1f619b2f6777ffa43cc136edca07d464cc331faf454d39d6f80aa"
+      }
+    }
+  },
+  {
+    "id": "bloom",
+    "label": "花语",
+    "sourceSha256": "c5d3fbc982b81532ab4ae4000f601a17404d006d808abb9098495ef5e5163ba3",
+    "assets": {
+      "32": {
+        "file": "bloom-32.rgba",
+        "sha256": "f70fdf32b5eea59537dd53dd438849d34621779450cfb8a0dbd424a006d2c5bd"
+      },
+      "128": {
+        "file": "bloom-128.rgba",
+        "sha256": "29fc99d9c4dd8f1aafb2b1bae56c7ae894efba32109855fceab0bcc2b84e30cd"
+      }
+    }
+  },
+  {
+    "id": "prism",
+    "label": "棱镜",
+    "sourceSha256": "f7aeafc183a0b2a18f1b88bc9cbe6634a49158ee38273c76d7e1b84ecda8bdfd",
+    "assets": {
+      "32": {
+        "file": "prism-32.rgba",
+        "sha256": "d4755157224dbb5baa4a036db12ed12c6a97e0b790825be290448425360b33af"
+      },
+      "128": {
+        "file": "prism-128.rgba",
+        "sha256": "b149cae5007c3c4bab12269d26293c8bb0b91e99d378f6014bb90c6308e5e363"
+      }
+    }
+  },
+  {
+    "id": "graphite",
+    "label": "曜黑",
+    "sourceSha256": "7cdc34c1d5db2028ce16362d5b6de72e6e2dcf529133b27405ede9f7f2610da1",
+    "assets": {
+      "32": {
+        "file": "graphite-32.rgba",
+        "sha256": "326849b246706a58b778cf8aaecb361b51eb58a3eb06f779c71f1a0ae5195637"
+      },
+      "128": {
+        "file": "graphite-128.rgba",
+        "sha256": "b204d5101c5d83b160b796f74d88e95ca3b29fc198675fd8a6f6a43194f7f6b9"
+      }
+    }
+  }
+]

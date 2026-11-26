@@ -1,0 +1,1724 @@
+{
+  "近30天": [
+    "Last 30 days",
+    "過去30日",
+    "Letzte 30 Tage",
+    "Lastaj 30 tagoj"
+  ],
+  "使用频率": [
+    "Usage frequency",
+    "使用頻度",
+    "Nutzungshäufigkeit",
+    "Uzofrekvenco"
+  ],
+  "近30天完成 {count} 次专注": [
+    "{count} focus sessions completed in the last 30 days",
+    "過去30日で集中を{count}回完了",
+    "{count} Fokussitzungen in den letzten 30 Tagen",
+    "{count} fokusaj sesioj finitaj en la lastaj 30 tagoj"
+  ],
+  "{date} · 完成 {count} 次专注": [
+    "{date} · {count} focus sessions completed",
+    "{date} · 集中を{count}回完了",
+    "{date} · {count} Fokussitzungen abgeschlossen",
+    "{date} · {count} fokusaj sesioj finitaj"
+  ],
+  "使用记录暂时不可用": [
+    "Usage history is temporarily unavailable",
+    "使用履歴を一時的に利用できません",
+    "Nutzungsverlauf vorübergehend nicht verfügbar",
+    "Uzohistorio provizore nedisponeblas"
+  ],
+  "番茄时钟": [
+    "Pomodoro",
+    "ポモドーロ",
+    "Pomodoro",
+    "Pomodoro"
+  ],
+  "语言": [
+    "Language",
+    "言語",
+    "Sprache",
+    "Lingvo"
+  ],
+  "即时切换，自动保存": [
+    "Applies instantly and saves automatically",
+    "すぐに反映・自動保存",
+    "Sofort anwenden und speichern",
+    "Tuj apliki kaj aŭtomate konservi"
+  ],
+  "设置": [
+    "Settings",
+    "設定",
+    "Einstellungen",
+    "Agordoj"
+  ],
+  "返回计时": [
+    "Back to timer",
+    "タイマーに戻る",
+    "Zurück zum Timer",
+    "Reen al la tempigilo"
+  ],
+  "外观": [
+    "Appearance",
+    "外観",
+    "Darstellung",
+    "Aspekto"
+  ],
+  "主题色": [
+    "Accent color",
+    "アクセントカラー",
+    "Akzentfarbe",
+    "Akcenta koloro"
+  ],
+  "明暗模式": [
+    "Color mode",
+    "表示モード",
+    "Farbmodus",
+    "Kolorreĝimo"
+  ],
+  "浅色": [
+    "Light",
+    "ライト",
+    "Hell",
+    "Hela"
+  ],
+  "深色": [
+    "Dark",
+    "ダーク",
+    "Dunkel",
+    "Malhela"
+  ],
+  "跟随系统": [
+    "System",
+    "システム",
+    "System",
+    "Sistema"
+  ],
+  "切换为浅色": [
+    "Switch to light",
+    "ライトに切り替え",
+    "Hell aktivieren",
+    "Ŝalti helan reĝimon"
+  ],
+  "切换为深色": [
+    "Switch to dark",
+    "ダークに切り替え",
+    "Dunkel aktivieren",
+    "Ŝalti malhelan reĝimon"
+  ],
+  "界面圆角": [
+    "Corner radius",
+    "角の丸み",
+    "Eckenradius",
+    "Angula radiuso"
+  ],
+  "直角": [
+    "Square",
+    "角丸なし",
+    "Eckig",
+    "Rektaj anguloj"
+  ],
+  "0 · 直角": [
+    "0 · Square",
+    "0 · 角丸なし",
+    "0 · Eckig",
+    "0 · Rekta"
+  ],
+  "32 · 圆润": [
+    "32 · Rounded",
+    "32 · 丸い",
+    "32 · Rund",
+    "32 · Ronda"
+  ],
+  "亚克力磨砂玻璃": [
+    "Frosted glass",
+    "すりガラス",
+    "Milchglas",
+    "Matigita vitro"
+  ],
+  "开启背景模糊；系统不支持时自动使用实色背景": [
+    "Blur the background; use a solid surface when unavailable",
+    "背景をぼかす。非対応環境では単色で表示",
+    "Hintergrund weichzeichnen; sonst einfarbig",
+    "Malklarigi la fonon; alie uzi solidan koloron"
+  ],
+  "窗口": [
+    "Window",
+    "ウィンドウ",
+    "Fenster",
+    "Fenestro"
+  ],
+  "主窗位置": [
+    "Window position",
+    "メイン画面の位置",
+    "Fensterposition",
+    "Fenestra pozicio"
+  ],
+  "选择后立即移动": [
+    "Moves immediately",
+    "選択するとすぐに移動",
+    "Wird sofort verschoben",
+    "Moviĝas tuj"
+  ],
+  "左上角": [
+    "Top left",
+    "左上",
+    "Oben links",
+    "Supre maldekstre"
+  ],
+  "右上角": [
+    "Top right",
+    "右上",
+    "Oben rechts",
+    "Supre dekstre"
+  ],
+  "屏幕居中": [
+    "Center",
+    "中央",
+    "Mitte",
+    "Centre"
+  ],
+  "左下角": [
+    "Bottom left",
+    "左下",
+    "Unten links",
+    "Sube maldekstre"
+  ],
+  "右下角": [
+    "Bottom right",
+    "右下",
+    "Unten rechts",
+    "Sube dekstre"
+  ],
+  "默认置顶": [
+    "Always on top",
+    "常に最前面",
+    "Immer im Vordergrund",
+    "Ĉiam supre"
+  ],
+  "也可在标题栏快速切换": [
+    "Also available in the title bar",
+    "タイトルバーでも切り替え可能",
+    "Auch über die Titelleiste umschaltbar",
+    "Ankaŭ ŝanĝebla en la titolbreto"
+  ],
+  "小窗": [
+    "Mini window",
+    "ミニウィンドウ",
+    "Minifenster",
+    "Eta fenestro"
+  ],
+  "小窗不透明度": [
+    "Mini window opacity",
+    "ミニ画面の不透明度",
+    "Minifenster-Deckkraft",
+    "Opakeco de la eta fenestro"
+  ],
+  "更通透": [
+    "More transparent",
+    "透明に",
+    "Transparenter",
+    "Pli travidebla"
+  ],
+  "更清晰": [
+    "More opaque",
+    "はっきり",
+    "Deckender",
+    "Pli opaka"
+  ],
+  "窗口贴边吸附": [
+    "Snap to screen edges",
+    "画面の端に吸着",
+    "Am Bildschirmrand einrasten",
+    "Alglui al ekranrandoj"
+  ],
+  "靠近屏幕边缘后松手，吸附并保留边距": [
+    "Release near an edge to snap with a small margin",
+    "端の近くで離すと余白を残して吸着",
+    "Nahe am Rand loslassen; kleiner Abstand bleibt",
+    "Ellasu apud rando; restas eta marĝeno"
+  ],
+  "小窗失焦淡化": [
+    "Dim inactive mini window",
+    "非アクティブ時に薄く表示",
+    "Inaktives Minifenster dimmen",
+    "Mildigi neaktivan etan fenestron"
+  ],
+  "悬停、触摸或操作时恢复清晰": [
+    "Restore clarity on hover, touch or interaction",
+    "ホバー・タッチ・操作で元に戻る",
+    "Bei Berührung oder Mauszeiger wieder klar",
+    "Reklariĝi dum ŝvebado, tuŝo aŭ uzo"
+  ],
+  "右键或长按小窗时间，可快速调整不透明度。": [
+    "Right-click or hold the mini timer to adjust opacity.",
+    "ミニ画面の時間を右クリックまたは長押しして不透明度を調整。",
+    "Minizeit rechts anklicken oder halten, um die Deckkraft anzupassen.",
+    "Dekstre alklaku aŭ tenu la etan tempigilon por ĝustigi opakecon."
+  ],
+  "体验": [
+    "Experience",
+    "操作",
+    "Bedienung",
+    "Uzado"
+  ],
+  "减少动效": [
+    "Reduce motion",
+    "動きを減らす",
+    "Bewegung reduzieren",
+    "Redukti moviĝon"
+  ],
+  "系统的减少动态效果设置始终生效": [
+    "System motion preferences always apply",
+    "システムの視差効果設定を常に優先",
+    "Systemvorgaben werden stets berücksichtigt",
+    "Sistemaj moviĝaj preferoj ĉiam validas"
+  ],
+  "显示记录提示": [
+    "Show recording status",
+    "記録状態を表示",
+    "Aufzeichnungsstatus anzeigen",
+    "Montri registran staton"
+  ],
+  "待保存和异常状态始终提示": [
+    "Pending records and errors are always shown",
+    "未保存の記録とエラーは常に表示",
+    "Ausstehende Einträge und Fehler bleiben sichtbar",
+    "Atendantaj registroj kaj eraroj ĉiam montriĝas"
+  ],
+  "恢复默认设置": [
+    "Restore defaults",
+    "初期設定に戻す",
+    "Standard wiederherstellen",
+    "Restarigi defaŭltojn"
+  ],
+  "应用图标": [
+    "App icon",
+    "アプリアイコン",
+    "App-Symbol",
+    "Aplikaĵa ikono"
+  ],
+  "立即应用到任务栏和系统托盘": [
+    "Updates the taskbar and system tray instantly",
+    "タスクバーとトレイにすぐ反映",
+    "Sofort in Taskleiste und Infobereich anwenden",
+    "Tuj ĝisdatigi la taskobreton kaj sisteman pleton"
+  ],
+  "{name}图标": [
+    "{name} icon",
+    "{name}アイコン",
+    "Symbol: {name}",
+    "Ikono {name}"
+  ],
+  "流光": [
+    "Flow",
+    "流光",
+    "Fluss",
+    "Fluo"
+  ],
+  "星轨": [
+    "Orbit",
+    "軌道",
+    "Umlaufbahn",
+    "Orbito"
+  ],
+  "花语": [
+    "Bloom",
+    "花",
+    "Blüte",
+    "Floro"
+  ],
+  "番茄": [
+    "Tomato",
+    "トマト",
+    "Tomate",
+    "Tomato"
+  ],
+  "棱镜": [
+    "Prism",
+    "プリズム",
+    "Prisma",
+    "Prismo"
+  ],
+  "曜黑": [
+    "Graphite",
+    "グラファイト",
+    "Graphit",
+    "Grafito"
+  ],
+  "湖蓝": [
+    "Lake blue",
+    "レイクブルー",
+    "Seeblau",
+    "Laga bluo"
+  ],
+  "青碧": [
+    "Teal",
+    "ティール",
+    "Petrol",
+    "Bluverdo"
+  ],
+  "松绿": [
+    "Pine green",
+    "パイングリーン",
+    "Kieferngrün",
+    "Pina verdo"
+  ],
+  "鸢紫": [
+    "Iris",
+    "アイリス",
+    "Iris",
+    "Iriso"
+  ],
+  "蔷薇": [
+    "Rose",
+    "ローズ",
+    "Rose",
+    "Rozo"
+  ],
+  "琥珀": [
+    "Amber",
+    "アンバー",
+    "Bernstein",
+    "Sukceno"
+  ],
+  "糖果粉": [
+    "Candy pink",
+    "キャンディピンク",
+    "Bonbonrosa",
+    "Bombona rozo"
+  ],
+  "电光紫": [
+    "Electric violet",
+    "エレクトリックパープル",
+    "Elektroviolett",
+    "Elektra violo"
+  ],
+  "泡泡蓝": [
+    "Bubble blue",
+    "バブルブルー",
+    "Blasenblau",
+    "Vezika bluo"
+  ],
+  "蜜橙": [
+    "Tangerine",
+    "タンジェリン",
+    "Mandarine",
+    "Mandarino"
+  ],
+  "青柠": [
+    "Lime",
+    "ライム",
+    "Limette",
+    "Limeo"
+  ],
+  "常用时长": [
+    "Durations",
+    "よく使う時間",
+    "Zeitvorgaben",
+    "Daŭroj"
+  ],
+  "名称": [
+    "Name",
+    "名前",
+    "Name",
+    "Nomo"
+  ],
+  "可选": [
+    "Optional",
+    "任意",
+    "Optional",
+    "Nedeviga"
+  ],
+  "例如：阅读": [
+    "e.g. Reading",
+    "例：読書",
+    "z. B. Lesen",
+    "ekz. Legado"
+  ],
+  "分钟": [
+    "min",
+    "分",
+    "Min.",
+    "min"
+  ],
+  "{minutes}分钟": [
+    "{minutes} min",
+    "{minutes}分",
+    "{minutes} Min.",
+    "{minutes} min"
+  ],
+  "保存后可在主界面选择": [
+    "Saved durations appear on the main screen",
+    "保存するとメイン画面で選択可能",
+    "Gespeicherte Zeiten erscheinen im Hauptfenster",
+    "Konservitaj daŭroj aperas en la ĉefa fenestro"
+  ],
+  "取消": [
+    "Cancel",
+    "キャンセル",
+    "Abbrechen",
+    "Nuligi"
+  ],
+  "保存修改": [
+    "Save changes",
+    "変更を保存",
+    "Speichern",
+    "Konservi"
+  ],
+  "添加时长": [
+    "Add duration",
+    "時間を追加",
+    "Zeit hinzufügen",
+    "Aldoni daŭron"
+  ],
+  "已保存的时长": [
+    "Saved durations",
+    "保存済みの時間",
+    "Gespeicherte Zeiten",
+    "Konservitaj daŭroj"
+  ],
+  "请输入 1–1440 的整数分钟。": [
+    "Enter a whole number from 1 to 1440 minutes.",
+    "1〜1440分の整数を入力してください。",
+    "Ganze Minuten von 1 bis 1440 eingeben.",
+    "Enigu entjeron de 1 ĝis 1440 minutoj."
+  ],
+  "已经有这个时长，可以直接使用。": [
+    "This duration is already available.",
+    "この時間はすでに登録されています。",
+    "Diese Dauer ist bereits vorhanden.",
+    "Ĉi tiu daŭro jam disponeblas."
+  ],
+  "最多保存 24 个常用时长。": [
+    "Save up to 24 durations.",
+    "保存できる時間は24件までです。",
+    "Maximal 24 Zeitvorgaben speichern.",
+    "Konservu maksimume 24 daŭrojn."
+  ],
+  "上移{name}": [
+    "Move {name} up",
+    "{name}を上に移動",
+    "{name} nach oben",
+    "Movi {name} supren"
+  ],
+  "下移{name}": [
+    "Move {name} down",
+    "{name}を下に移動",
+    "{name} nach unten",
+    "Movi {name} malsupren"
+  ],
+  "编辑{name}": [
+    "Edit {name}",
+    "{name}を編集",
+    "{name} bearbeiten",
+    "Redakti {name}"
+  ],
+  "删除{name}": [
+    "Delete {name}",
+    "{name}を削除",
+    "{name} löschen",
+    "Forigi {name}"
+  ],
+  "暂停": [
+    "Pause",
+    "一時停止",
+    "Pause",
+    "Paŭzi"
+  ],
+  "继续": [
+    "Resume",
+    "再開",
+    "Fortsetzen",
+    "Daŭrigi"
+  ],
+  "再来一段": [
+    "Start again",
+    "もう一度",
+    "Neu starten",
+    "Rekomenci"
+  ],
+  "开始专注": [
+    "Start focus",
+    "集中を開始",
+    "Fokus starten",
+    "Koncentriĝi"
+  ],
+  "开始休息": [
+    "Start break",
+    "休憩を開始",
+    "Pause starten",
+    "Ripozi"
+  ],
+  "专注": [
+    "Focus",
+    "集中",
+    "Fokus",
+    "Koncentriĝo"
+  ],
+  "休息": [
+    "Break",
+    "休憩",
+    "Pause",
+    "Paŭzo"
+  ],
+  "选择时段": [
+    "Choose a session",
+    "セッションを選択",
+    "Sitzung wählen",
+    "Elekti sesion"
+  ],
+  "倒计时": [
+    "Countdown",
+    "カウントダウン",
+    "Countdown",
+    "Retronombrado"
+  ],
+  "选择时长": [
+    "Choose duration",
+    "時間を選択",
+    "Dauer wählen",
+    "Elekti daŭron"
+  ],
+  "快捷时长（分钟）": [
+    "Quick durations in minutes",
+    "時間プリセット（分）",
+    "Schnellwahl in Minuten",
+    "Rapidaj daŭroj en minutoj"
+  ],
+  "正在连接…": [
+    "Connecting…",
+    "接続中…",
+    "Verbinden…",
+    "Konektante…"
+  ],
+  "本段已完成": [
+    "Session complete",
+    "完了",
+    "Sitzung beendet",
+    "Sesio finita"
+  ],
+  "已暂停": [
+    "Paused",
+    "一時停止中",
+    "Pausiert",
+    "Paŭzita"
+  ],
+  "专注中": [
+    "Focusing",
+    "集中中",
+    "Fokus läuft",
+    "Koncentriĝante"
+  ],
+  "休息中": [
+    "On a break",
+    "休憩中",
+    "Pause läuft",
+    "Paŭzante"
+  ],
+  "准备开始": [
+    "Ready when you are",
+    "準備完了",
+    "Bereit zum Start",
+    "Preta por komenci"
+  ],
+  "添加一个常用时长": [
+    "Add a duration",
+    "時間を追加",
+    "Dauer hinzufügen",
+    "Aldoni daŭron"
+  ],
+  "自定义时长": [
+    "Custom duration",
+    "時間をカスタマイズ",
+    "Eigene Dauer",
+    "Propra daŭro"
+  ],
+  "添加和管理时长": [
+    "Add and manage durations",
+    "時間を追加・管理",
+    "Zeiten hinzufügen und verwalten",
+    "Aldoni kaj administri daŭrojn"
+  ],
+  "重置当前时段": [
+    "Reset this session",
+    "このセッションをリセット",
+    "Diese Sitzung zurücksetzen",
+    "Restarigi ĉi tiun sesion"
+  ],
+  "返回主窗": [
+    "Open main window",
+    "メイン画面に戻る",
+    "Hauptfenster öffnen",
+    "Malfermi la ĉefan fenestron"
+  ],
+  "取消置顶": [
+    "Unpin window",
+    "最前面を解除",
+    "Nicht mehr im Vordergrund",
+    "Ne plu ĉiam supre"
+  ],
+  "置顶窗口": [
+    "Pin window",
+    "最前面に固定",
+    "Im Vordergrund halten",
+    "Teni la fenestron supre"
+  ],
+  "切换小悬浮窗": [
+    "Switch to mini window",
+    "ミニ画面に切り替え",
+    "Zum Minifenster wechseln",
+    "Ŝalti etan fenestron"
+  ],
+  "最小化": [
+    "Minimize",
+    "最小化",
+    "Minimieren",
+    "Minimumigi"
+  ],
+  "收起到托盘，计时继续": [
+    "Hide to tray; timer keeps running",
+    "トレイに隠す（計時は継続）",
+    "In den Infobereich; Timer läuft weiter",
+    "Kaŝi en la pleton; tempigilo daŭras"
+  ],
+  "剩余 {minutes} 分 {seconds} 秒": [
+    "{minutes} minutes {seconds} seconds remaining",
+    "残り{minutes}分{seconds}秒",
+    "Noch {minutes} Minuten {seconds} Sekunden",
+    "Restas {minutes} minutoj kaj {seconds} sekundoj"
+  ],
+  "切换为数字": [
+    "Show digits",
+    "数字表示に切り替え",
+    "Ziffern anzeigen",
+    "Montri ciferojn"
+  ],
+  "切换为简洁进度": [
+    "Show quiet progress",
+    "シンプルな進捗表示に切り替え",
+    "Schlichten Fortschritt anzeigen",
+    "Montri simplan progreson"
+  ],
+  "有 {count} 条记录待保存": [
+    "{count} records waiting to save",
+    "{count}件の記録が保存待ち",
+    "{count} Einträge warten auf Speicherung",
+    "{count} registroj atendas konservon"
+  ],
+  "重新连接": [
+    "Reconnect",
+    "再接続",
+    "Neu verbinden",
+    "Rekonekti"
+  ],
+  "到时提醒": [
+    "Time is up",
+    "時間になりました",
+    "Zeit abgelaufen",
+    "Tempo finiĝis"
+  ],
+  "关闭提醒": [
+    "Close reminder",
+    "通知を閉じる",
+    "Erinnerung schließen",
+    "Fermi la memorigon"
+  ],
+  "专注完成": [
+    "Focus complete",
+    "集中時間が終了",
+    "Fokus beendet",
+    "Koncentriĝo finita"
+  ],
+  "休息完成": [
+    "Break complete",
+    "休憩が終了",
+    "Pause beendet",
+    "Paŭzo finita"
+  ],
+  "辛苦了，给自己一个小小的休息。": [
+    "Well done. Take a little break.",
+    "お疲れさまでした。少し休憩しましょう。",
+    "Gut gemacht. Gönn dir eine kleine Pause.",
+    "Bone farite. Ripozu iomete."
+  ],
+  "休息结束，准备好再出发。": [
+    "Refreshed and ready for the next session.",
+    "休憩終了。次のセッションを始めましょう。",
+    "Die Pause ist vorbei. Bereit für die nächste Runde.",
+    "La paŭzo finiĝis. Preparu vin por la sekva sesio."
+  ],
+  "知道了，关闭提醒": [
+    "Got it, close reminder",
+    "確認して閉じる",
+    "Verstanden, schließen",
+    "Komprenite, fermi"
+  ],
+  "计时服务暂时不可用，正在重试。": [
+    "Timer unavailable. Retrying…",
+    "タイマーに接続できません。再試行中…",
+    "Timer nicht verfügbar. Neuer Versuch…",
+    "Tempigilo nedisponebla. Reprovante…"
+  ],
+  "窗口状态暂时不可用，请重试。": [
+    "Window state unavailable. Please retry.",
+    "ウィンドウの状態を取得できません。再試行してください。",
+    "Fensterstatus nicht verfügbar. Bitte erneut versuchen.",
+    "Fenestra stato nedisponebla. Bonvolu reprovi."
+  ],
+  "提醒状态暂时不可用，请重试关闭。": [
+    "Reminder unavailable. Please try closing again.",
+    "通知の状態を取得できません。もう一度閉じてください。",
+    "Erinnerung nicht verfügbar. Bitte erneut schließen.",
+    "Memoriga stato nedisponebla. Bonvolu reprovi fermi."
+  ],
+  "显示番茄时钟": [
+    "Show Pomodoro",
+    "ポモドーロを表示",
+    "Pomodoro anzeigen",
+    "Montri Pomodoro"
+  ],
+  "开始 / 暂停": [
+    "Start / Pause",
+    "開始 / 一時停止",
+    "Start / Pause",
+    "Komenci / Paŭzi"
+  ],
+  "重置本段": [
+    "Reset session",
+    "セッションをリセット",
+    "Sitzung zurücksetzen",
+    "Restarigi sesion"
+  ],
+  "置顶 / 取消置顶": [
+    "Toggle always on top",
+    "最前面を切り替え",
+    "Vordergrund umschalten",
+    "Ŝalti aŭ malŝalti ĉiam supre"
+  ],
+  "退出": [
+    "Quit",
+    "終了",
+    "Beenden",
+    "Eliri"
+  ],
+  "失焦时淡化": [
+    "Dim when inactive",
+    "非アクティブ時に薄く表示",
+    "Bei Inaktivität dimmen",
+    "Mildigi dum neaktiveco"
+  ],
+  "贴边吸附": [
+    "Snap to edges",
+    "端に吸着",
+    "Am Rand einrasten",
+    "Alglui al randoj"
+  ],
+  "恢复主窗口": [
+    "Restore main window",
+    "メイン画面に戻る",
+    "Hauptfenster öffnen",
+    "Restarigi la ĉefan fenestron"
+  ],
+  "已用时间": [
+    "Elapsed time",
+    "経過時間",
+    "Verstrichene Zeit",
+    "Pasinta tempo"
+  ],
+  "拖动调整剩余时间": [
+    "Drag to adjust remaining time",
+    "ドラッグして残り時間を調整",
+    "Ziehen, um die Restzeit zu ändern",
+    "Trenu por ŝanĝi la restantan tempon"
+  ],
+  "正计时 · 已用时间": [
+    "Count up · elapsed time",
+    "正計時 · 経過時間",
+    "Vorwärts · verstrichene Zeit",
+    "Antaŭen · pasinta tempo"
+  ],
+  "拖动圆环调整时间，方向键按秒微调": [
+    "Drag the dial; arrow keys adjust seconds",
+    "円をドラッグ・矢印キーで秒単位に調整",
+    "Ring ziehen · Pfeiltasten ändern Sekunden",
+    "Trenu la ringon · sagoj ŝanĝas sekundojn"
+  ],
+  "切换为倒计时": [
+    "Switch to countdown",
+    "カウントダウンに切り替え",
+    "Zum Countdown wechseln",
+    "Ŝalti retronombradon"
+  ],
+  "切换为正计时": [
+    "Switch to count up",
+    "正計時に切り替え",
+    "Vorwärts zählen",
+    "Ŝalti antaŭnombradon"
+  ],
+  "未能关闭提醒，请再试一次。": [
+    "Could not close the reminder. Please retry.",
+    "通知を閉じられませんでした。再試行してください。",
+    "Erinnerung konnte nicht geschlossen werden. Bitte erneut versuchen.",
+    "Ne eblis fermi la memorigon. Bonvolu reprovi."
+  ],
+  "休息结束": [
+    "Break complete",
+    "休憩終了",
+    "Pause beendet",
+    "Paŭzo finita"
+  ],
+  "准备好后，再开始下一段专注。": [
+    "Start the next focus session when you are ready.",
+    "準備ができたら次の集中を始めましょう。",
+    "Starte die nächste Fokussitzung, wenn du bereit bist.",
+    "Komencu la sekvan koncentriĝon kiam vi pretos."
+  ],
+  "已用 {minutes} 分 {seconds} 秒": [
+    "{minutes} minutes {seconds} seconds elapsed",
+    "{minutes}分{seconds}秒経過",
+    "{minutes} Minuten {seconds} Sekunden vergangen",
+    "Pasis {minutes} minutoj kaj {seconds} sekundoj"
+  ],
+  "保存中…": [
+    "Saving…",
+    "保存中…",
+    "Speichern…",
+    "Konservante…"
+  ],
+  "自动保存": [
+    "Saved automatically",
+    "自動保存",
+    "Automatisch gespeichert",
+    "Aŭtomate konservita"
+  ],
+  "加载中…": [
+    "Loading…",
+    "読み込み中…",
+    "Laden…",
+    "Ŝargante…"
+  ],
+  "· 选择后立即移动": [
+    " · Moves immediately",
+    " · すぐに移動",
+    " · Sofort verschieben",
+    " · Moviĝas tuj"
+  ],
+  "还没有常用时长，添加一个吧。": [
+    "No durations yet. Add your first one.",
+    "時間を追加してください。",
+    "Noch keine Zeitvorgaben. Füge eine hinzu.",
+    "Ankoraŭ neniu daŭro. Aldonu unu."
+  ],
+  "剩余时间请设置为 1 秒至 24 小时。": [
+    "Set remaining time between 1 second and 24 hours.",
+    "残り時間は1秒〜24時間で設定してください。",
+    "Restzeit zwischen 1 Sekunde und 24 Stunden wählen.",
+    "Elektu restantan tempon de 1 sekundo ĝis 24 horoj."
+  ],
+  "数字滚动效果": [
+    "Rolling digits",
+    "数字のロール効果",
+    "Rollende Ziffern",
+    "Ruliĝantaj ciferoj"
+  ],
+  "随计时轻柔滚动，减少动效时自动关闭": [
+    "Gently roll with time; disabled when motion is reduced",
+    "時刻に合わせてロール。動きを減らすと自動で無効",
+    "Sanftes Rollen; bei reduzierter Bewegung deaktiviert",
+    "Milde ruliĝi; malŝaltita kiam moviĝo estas reduktita"
+  ],
+  "轻触光球，给自己一点鼓励": [
+    "Touch the orb for a little encouragement",
+    "光の球に触れて、ひと息つきましょう",
+    "Berühre die Kugel für einen kleinen Zuspruch",
+    "Tuŝu la globon por iom da kuraĝigo"
+  ],
+  "慢慢呼吸，轻轻放松。": [
+    "Take a gentle breath and relax.",
+    "ゆっくり呼吸して、肩の力を抜いて。",
+    "Atme ruhig und entspanne dich.",
+    "Spiru trankvile kaj malstreĉiĝu."
+  ],
+  "喝口水，休息片刻。": [
+    "Have some water and rest a moment.",
+    "水を飲んで、少し休みましょう。",
+    "Trink etwas Wasser und ruhe dich kurz aus.",
+    "Trinku iom da akvo kaj ripozu momente."
+  ],
+  "按自己的节奏继续。": [
+    "Continue at your own pace.",
+    "自分のペースで進みましょう。",
+    "Mach in deinem eigenen Tempo weiter.",
+    "Daŭrigu laŭ via propra ritmo."
+  ],
+  "轻触光环，给自己一点鼓励": [
+    "Touch the halo for a little encouragement",
+    "光の輪に触れて、ひと息つきましょう",
+    "Berühre den Lichtring für einen kleinen Zuspruch",
+    "Tuŝu la lumringon por iom da kuraĝigo"
+  ],
+  "声音": [
+    "Sound",
+    "サウンド",
+    "Klang",
+    "Sono"
+  ],
+  "交互音效": [
+    "Interaction sounds",
+    "操作音",
+    "Bedienklänge",
+    "Interagaj sonoj"
+  ],
+  "轻柔回应开始、暂停和选择操作": [
+    "Gentle feedback for start, pause and selection",
+    "開始・一時停止・選択に、やさしい操作音",
+    "Sanfte Rückmeldung für Start, Pause und Auswahl",
+    "Milda sono por komenco, paŭzo kaj elekto"
+  ],
+  "音效音量": [
+    "Sound volume",
+    "操作音の音量",
+    "Lautstärke der Bedienklänge",
+    "Laŭteco de interagaj sonoj"
+  ],
+  "静音": [
+    "Mute",
+    "ミュート",
+    "Stumm",
+    "Silentigi"
+  ],
+  "取消静音": [
+    "Unmute",
+    "ミュート解除",
+    "Ton einschalten",
+    "Malsilentigi"
+  ],
+  "更响亮": [
+    "Louder",
+    "大きく",
+    "Lauter",
+    "Pli laŭte"
+  ],
+  "试听音效": [
+    "Preview sound",
+    "操作音を試聴",
+    "Klang anhören",
+    "Aŭskulti sonon"
+  ],
+  "提醒窗环境音": [
+    "Reminder ambience",
+    "通知の環境音",
+    "Umgebungsklang im Hinweis",
+    "Etosa sono en la atentigo"
+  ],
+  "到时柔和淡入，关闭提醒即停止": [
+    "Fades in when time is up; stops when dismissed",
+    "時間になると静かに始まり、通知を閉じると停止",
+    "Blendet am Ende sanft ein und stoppt beim Schließen",
+    "Milde eksonas fine kaj ĉesas kiam vi fermas la atentigon"
+  ],
+  "环境音质感": [
+    "Sound texture",
+    "環境音の種類",
+    "Klangcharakter",
+    "Sona teksturo"
+  ],
+  "柔和": [
+    "Soft",
+    "やわらぎ",
+    "Sanft",
+    "Milda"
+  ],
+  "细雨": [
+    "Rain",
+    "こさめ",
+    "Regen",
+    "Pluvo"
+  ],
+  "远海": [
+    "Ocean",
+    "とおうみ",
+    "Meer",
+    "Oceano"
+  ],
+  "均匀、温暖的柔和噪音": [
+    "Even, warm filtered noise",
+    "均一であたたかなノイズ",
+    "Gleichmäßiges, warmes Rauschen",
+    "Egala, varma filtrita bruo"
+  ],
+  "轻盈、细密的雨幕质感": [
+    "Light, delicate rainfall texture",
+    "軽やかできめ細かな雨の質感",
+    "Leichtes, feines Regenrauschen",
+    "Malpeza, delikata pluva teksturo"
+  ],
+  "缓缓起伏的低沉海潮": [
+    "Slowly drifting, low ocean waves",
+    "ゆっくり満ち引く低い波の音",
+    "Langsam wogendes, tiefes Meeresrauschen",
+    "Malrapidaj, profundaj oceanaj ondoj"
+  ],
+  "环境音音量": [
+    "Ambience volume",
+    "環境音の音量",
+    "Lautstärke der Umgebung",
+    "Laŭteco de etosa sono"
+  ],
+  "停止试听": [
+    "Stop preview",
+    "試聴を停止",
+    "Vorschau stoppen",
+    "Ĉesigi provon"
+  ],
+  "试听 8 秒": [
+    "Preview for 8 seconds",
+    "8秒間試聴",
+    "8 Sekunden anhören",
+    "Aŭskulti dum 8 sekundoj"
+  ],
+  "环境音": [
+    "Ambience",
+    "環境音",
+    "Umgebung",
+    "Etosa sono"
+  ],
+  "播放环境音": [
+    "Play ambience",
+    "環境音を再生",
+    "Umgebungsklang abspielen",
+    "Ludi etosan sonon"
+  ],
+  "暂停环境音": [
+    "Pause ambience",
+    "環境音を一時停止",
+    "Umgebungsklang pausieren",
+    "Paŭzigi etosan sonon"
+  ],
+  "切换环境音质感": [
+    "Change sound texture",
+    "環境音を切り替え",
+    "Klangcharakter wechseln",
+    "Ŝanĝi sonan teksturon"
+  ],
+  "点击播放，开启环境音。": [
+    "Press play to start ambience.",
+    "再生ボタンで環境音を開始。",
+    "Zum Starten auf Wiedergabe drücken.",
+    "Premu ludi por komenci la etosan sonon."
+  ],
+  "音频暂不可用，请检查系统音频设备。": [
+    "Audio is unavailable. Check your audio device.",
+    "音声を利用できません。音声デバイスをご確認ください。",
+    "Audio nicht verfügbar. Bitte Audiogerät prüfen.",
+    "Sono ne disponeblas. Kontrolu la sonaparaton."
+  ],
+  "此刻，留给自己": [
+    "A moment, just for you",
+    "いまは、自分のために",
+    "Ein Moment für dich",
+    "Momento nur por vi"
+  ],
+  "新的节奏，从容开始": [
+    "Begin again, at your pace",
+    "自分のペースで、また始めよう",
+    "Im eigenen Tempo weiter",
+    "Rekomencu laŭ via ritmo"
+  ],
+  "知道了": [
+    "All done",
+    "閉じる",
+    "Alles klar",
+    "Bone"
+  ],
+  "音量请设置为 0–100%。": [
+    "Set volume between 0 and 100%.",
+    "音量は0〜100%で設定してください。",
+    "Lautstärke zwischen 0 und 100 % wählen.",
+    "Elektu laŭtecon inter 0 kaj 100 %."
+  ],
+  "冥想氛围": [
+    "Meditation ambience",
+    "瞑想サウンド",
+    "Meditation",
+    "Medita etoso"
+  ],
+  "冥想音色": [
+    "Meditation sound",
+    "瞑想の音色",
+    "Meditationsklang",
+    "Medita sono"
+  ],
+  "冥想音量": [
+    "Meditation volume",
+    "瞑想サウンドの音量",
+    "Meditationslautstärke",
+    "Laŭteco de medita sono"
+  ],
+  "静心": [
+    "Stillness",
+    "静けさ",
+    "Ruhe",
+    "Kvieto"
+  ],
+  "空灵": [
+    "Ether",
+    "ひろがり",
+    "Weite",
+    "Etero"
+  ],
+  "颂钵": [
+    "Singing bowl",
+    "シンギングボウル",
+    "Klangschale",
+    "Sonbovlo"
+  ],
+  "温暖和弦，缓慢起伏": [
+    "Warm chords, gently drifting",
+    "あたたかな和音、ゆるやかな揺らぎ",
+    "Warme Akkorde, sanft schwebend",
+    "Varmaj akordoj, milde ondantaj"
+  ],
+  "轻盈泛音，通透留白": [
+    "Airy harmonics, space to breathe",
+    "軽やかな倍音、澄んだ余白",
+    "Luftige Obertöne, Raum zum Atmen",
+    "Malpezaj harmonoj, spaco por spiri"
+  ],
+  "柔和共鸣，悠长余韵": [
+    "Soft resonance, lingering decay",
+    "やさしい共鳴、長く続く余韻",
+    "Sanfte Resonanz, langer Nachklang",
+    "Milda resonanco, longa postsono"
+  ],
+  "播放冥想音": [
+    "Play meditation ambience",
+    "瞑想サウンドを再生",
+    "Meditation abspielen",
+    "Ludi meditan sonon"
+  ],
+  "暂停冥想音": [
+    "Pause meditation ambience",
+    "瞑想サウンドを一時停止",
+    "Meditation pausieren",
+    "Paŭzigi meditan sonon"
+  ],
+  "切换冥想音色": [
+    "Change meditation sound",
+    "瞑想の音色を切り替え",
+    "Meditationsklang wechseln",
+    "Ŝanĝi meditan sonon"
+  ],
+  "正在准备…": [
+    "Preparing…",
+    "準備中…",
+    "Wird vorbereitet…",
+    "Preparante…"
+  ],
+  "静音模式": [
+    "Silent mode",
+    "サイレントモード",
+    "Lautlosmodus",
+    "Silenta reĝimo"
+  ],
+  "开启静音模式": [
+    "Enable silent mode",
+    "サイレントモードを有効にする",
+    "Lautlosmodus aktivieren",
+    "Ŝalti silentan reĝimon"
+  ],
+  "取消静音模式": [
+    "Disable silent mode",
+    "サイレントモードを解除",
+    "Lautlosmodus deaktivieren",
+    "Malŝalti silentan reĝimon"
+  ],
+  "静音模式已开启": [
+    "Silent mode is on",
+    "サイレントモードが有効です",
+    "Lautlosmodus ist aktiv",
+    "Silenta reĝimo estas ŝaltita"
+  ],
+  "磨砂模式保留背景模糊，透明度调整内容与表面色调。": [
+    "Frosted mode keeps background blur; opacity adjusts content and surface tint.",
+    "すりガラスモードでは背景のぼかしを保ち、不透明度で内容と表面の色合いを調整します。",
+    "Im Glasmodus bleibt die Hintergrundunschärfe erhalten; die Deckkraft ändert Inhalt und Oberflächentönung.",
+    "Vitra reĝimo konservas la fonan malklarigon; opakeco ĝustigas enhavon kaj surfacan nuancon."
+  ],
+  "墨黑": [
+    "Ink Black",
+    "墨黒",
+    "Tintenschwarz",
+    "Inka nigro"
+  ],
+  "月白": [
+    "Moon White",
+    "月白",
+    "Mondweiß",
+    "Luna blanko"
+  ],
+  "控件圆角可精细调节；外窗使用系统圆角档位。": [
+    "Controls use the selected radius; window corners follow system presets.",
+    "部品の角丸は細かく調整できます。ウィンドウの角丸はシステム設定に従います。",
+    "Steuerelemente nutzen den gewählten Radius; Fenster die Rundungen des Systems.",
+    "Regiloj uzas la elektitan radiuson; fenestroj sekvas la sistemajn angulojn."
+  ],
+  "计时样式": [
+    "Timer style",
+    "タイマーの表示",
+    "Timerdarstellung",
+    "Temporizila stilo"
+  ],
+  "上一种计时样式": [
+    "Previous timer style",
+    "前のタイマー表示",
+    "Vorherige Timerdarstellung",
+    "Antaŭa temporizila stilo"
+  ],
+  "下一种计时样式": [
+    "Next timer style",
+    "次のタイマー表示",
+    "Nächste Timerdarstellung",
+    "Sekva temporizila stilo"
+  ],
+  "彗星": [
+    "Comet",
+    "コメット",
+    "Komet",
+    "Kometo"
+  ],
+  "静弧": [
+    "Quiet arc",
+    "静かなアーク",
+    "Ruhiger Bogen",
+    "Trankvila arko"
+  ],
+  "环绕": [
+    "Orbit",
+    "オービット",
+    "Umlauf",
+    "Orbito"
+  ],
+  "刻度": [
+    "Ticks",
+    "目盛り",
+    "Teilstriche",
+    "Markoj"
+  ],
+  "字面": [
+    "Digits",
+    "数字",
+    "Ziffern",
+    "Ciferoj"
+  ],
+  "自定义主题色": [
+    "Custom accent",
+    "カスタムテーマ色",
+    "Eigene Akzentfarbe",
+    "Propra akcentkoloro"
+  ],
+  "饱和度和明度": [
+    "Saturation and brightness",
+    "彩度と明度",
+    "Sättigung und Helligkeit",
+    "Satureco kaj heleco"
+  ],
+  "色相": [
+    "Hue",
+    "色相",
+    "Farbton",
+    "Nuanco"
+  ],
+  "十六进制颜色": [
+    "Hex color",
+    "16進数カラー",
+    "Hex-Farbe",
+    "Deksesuma koloro"
+  ],
+  "自动适配文字对比度": [
+    "Text contrast adjusts automatically",
+    "文字のコントラストを自動調整",
+    "Textkontrast wird automatisch angepasst",
+    "Teksta kontrasto aŭtomate adaptiĝas"
+  ],
+  "颜色未能保存，请重试。": [
+    "Could not save the color. Try again.",
+    "色を保存できませんでした。もう一度お試しください。",
+    "Farbe konnte nicht gespeichert werden. Bitte erneut versuchen.",
+    "Ne eblis konservi la koloron. Reprovu."
+  ],
+  "请输入有效的十六进制颜色。": [
+    "Enter a valid hex color.",
+    "有効な16進数カラーを入力してください。",
+    "Bitte eine gültige Hex-Farbe eingeben.",
+    "Enigu validan deksesuman koloron."
+  ],
+  "主题色请使用 #RRGGBB 格式。": [
+    "Use #RRGGBB for the accent color.",
+    "テーマ色は #RRGGBB 形式で指定してください。",
+    "Akzentfarbe im Format #RRGGBB angeben.",
+    "Uzu la formaton #RRGGBB por la akcentkoloro."
+  ],
+  "自定义声音标识无效。": [
+    "The custom sound ID is invalid.",
+    "カスタム音声のIDが無効です。",
+    "Die ID des eigenen Klangs ist ungültig.",
+    "La identigilo de la propra sono estas nevalida."
+  ],
+  "本地音库": [
+    "Local sound library",
+    "ローカル音源",
+    "Lokale Klangbibliothek",
+    "Loka sonbiblioteko"
+  ],
+  "导入音频": [
+    "Import audio",
+    "音声を読み込む",
+    "Audio importieren",
+    "Importi sonon"
+  ],
+  "MP3、WAV、M4A、OGG、FLAC；每个文件最多 100 MB。仅保存在本机，不改动原文件。": [
+    "MP3, WAV, M4A, OGG or FLAC; up to 100 MB per file. Stored on this device. Original files stay unchanged.",
+    "MP3・WAV・M4A・OGG・FLAC、1ファイル100 MBまで。この端末内に保存し、元のファイルは変更しません。",
+    "MP3, WAV, M4A, OGG oder FLAC; bis zu 100 MB pro Datei. Lokal gespeichert. Originaldateien bleiben unverändert.",
+    "MP3, WAV, M4A, OGG aŭ FLAC; maksimume 100 MB por dosiero. Konservata loke. Originalaj dosieroj restas senŝanĝaj."
+  ],
+  "音频名称": [
+    "Sound name",
+    "音源名",
+    "Klangname",
+    "Sonnomo"
+  ],
+  "导入并选用": [
+    "Import and select",
+    "読み込んで選択",
+    "Importieren und auswählen",
+    "Importi kaj elekti"
+  ],
+  "正在读取本地音库…": [
+    "Loading local sounds…",
+    "ローカル音源を読み込み中…",
+    "Lokale Klänge werden geladen…",
+    "Ŝargante lokajn sonojn…"
+  ],
+  "加入自己的雨声、音乐或冥想录音。": [
+    "Add your own rain, music or meditation recordings.",
+    "雨音や音楽、瞑想の録音を追加できます。",
+    "Eigene Regenklänge, Musik oder Meditationsaufnahmen hinzufügen.",
+    "Aldonu viajn proprajn pluvsonojn, muzikon aŭ meditajn registraĵojn."
+  ],
+  "选用 {name}": [
+    "Select {name}",
+    "{name}を選択",
+    "{name} auswählen",
+    "Elekti {name}"
+  ],
+  "试听 {name}": [
+    "Preview {name}",
+    "{name}を試聴",
+    "{name} anhören",
+    "Antaŭaŭskulti {name}"
+  ],
+  "保存名称": [
+    "Save name",
+    "名前を保存",
+    "Namen speichern",
+    "Konservi nomon"
+  ],
+  "取消重命名": [
+    "Cancel rename",
+    "名前の変更をキャンセル",
+    "Umbenennen abbrechen",
+    "Nuligi alinomadon"
+  ],
+  "重命名 {name}": [
+    "Rename {name}",
+    "{name}の名前を変更",
+    "{name} umbenennen",
+    "Alinomi {name}"
+  ],
+  "重命名": [
+    "Rename",
+    "名前を変更",
+    "Umbenennen",
+    "Alinomi"
+  ],
+  "移除 {name}": [
+    "Remove {name}",
+    "{name}を削除",
+    "{name} entfernen",
+    "Forigi {name}"
+  ],
+  "从本地音库移除": [
+    "Remove from local library",
+    "ローカル音源から削除",
+    "Aus lokaler Bibliothek entfernen",
+    "Forigi el loka biblioteko"
+  ],
+  "已导入 {name}": [
+    "Imported {name}",
+    "{name}を読み込みました",
+    "{name} importiert",
+    "{name} importita"
+  ],
+  "已移除 {name}": [
+    "Removed {name}",
+    "{name}を削除しました",
+    "{name} entfernt",
+    "{name} forigita"
+  ],
+  "本地音频": [
+    "Local audio",
+    "ローカル音声",
+    "Lokales Audio",
+    "Loka sono"
+  ],
+  "未能保存声音选择，请重试。": [
+    "Could not save the sound selection. Try again.",
+    "音源の選択を保存できませんでした。もう一度お試しください。",
+    "Klangauswahl konnte nicht gespeichert werden. Bitte erneut versuchen.",
+    "Ne eblis konservi la sonelekton. Reprovu."
+  ],
+  "音频名称不能为空。": [
+    "Enter a sound name.",
+    "音源名を入力してください。",
+    "Bitte einen Klangnamen eingeben.",
+    "Enigu sonnomon."
+  ],
+  "音频名称最多 80 个字符。": [
+    "Sound names can contain up to 80 characters.",
+    "音源名は80文字以内で入力してください。",
+    "Klangnamen dürfen höchstens 80 Zeichen enthalten.",
+    "Sonnomoj povas enhavi maksimume 80 signojn."
+  ],
+  "请选择 MP3、WAV、M4A、OGG 或 FLAC 音频文件。": [
+    "Choose an MP3, WAV, M4A, OGG or FLAC audio file.",
+    "MP3・WAV・M4A・OGG・FLACの音声ファイルを選択してください。",
+    "Bitte eine MP3-, WAV-, M4A-, OGG- oder FLAC-Datei auswählen.",
+    "Elektu sondosieron en formato MP3, WAV, M4A, OGG aŭ FLAC."
+  ],
+  "音频文件为空，请重新选择。": [
+    "The audio file is empty. Choose another file.",
+    "音声ファイルが空です。別のファイルを選択してください。",
+    "Die Audiodatei ist leer. Bitte eine andere Datei auswählen.",
+    "La sondosiero estas malplena. Elektu alian."
+  ],
+  "单个音频文件不能超过 100 MB。": [
+    "Each audio file must be 100 MB or smaller.",
+    "音声ファイルは1つ100 MB以内にしてください。",
+    "Jede Audiodatei darf höchstens 100 MB groß sein.",
+    "Ĉiu sondosiero devas esti maksimume 100 MB."
+  ],
+  "此音频无法播放，请换用浏览器支持的格式。": [
+    "This audio cannot be played. Try another supported format.",
+    "この音声は再生できません。対応する別の形式をお試しください。",
+    "Dieses Audio kann nicht abgespielt werden. Bitte ein anderes unterstütztes Format verwenden.",
+    "Ĉi tiu sono ne estas ludebla. Provu alian subtenatan formaton."
+  ],
+  "音频读取超时，请换用其他文件。": [
+    "Loading audio timed out. Try another file.",
+    "音声の読み込みがタイムアウトしました。別のファイルをお試しください。",
+    "Zeitüberschreitung beim Laden. Bitte eine andere Datei verwenden.",
+    "La ŝargado de la sono eltempiĝis. Provu alian dosieron."
+  ],
+  "本地音库存储不可用，请重启应用后重试。": [
+    "Local sound storage is unavailable. Restart the app and try again.",
+    "ローカル音源を保存できません。アプリを再起動してお試しください。",
+    "Lokaler Klangspeicher ist nicht verfügbar. App neu starten und erneut versuchen.",
+    "Loka sonkonservejo ne disponeblas. Rekomencu la aplikaĵon kaj reprovu."
+  ],
+  "本地音库空间不足，请移除部分声音后重试。": [
+    "Local sound storage is full. Remove some sounds and try again.",
+    "ローカル音源の保存容量が足りません。一部の音源を削除してお試しください。",
+    "Lokaler Klangspeicher ist voll. Einige Klänge entfernen und erneut versuchen.",
+    "La loka sonkonservejo estas plena. Forigu kelkajn sonojn kaj reprovu."
+  ],
+  "无法保存本地音库，请重试。": [
+    "Could not save the local library. Try again.",
+    "ローカル音源を保存できませんでした。もう一度お試しください。",
+    "Lokale Bibliothek konnte nicht gespeichert werden. Bitte erneut versuchen.",
+    "Ne eblis konservi la lokan bibliotekon. Reprovu."
+  ],
+  "无法读取本地音库，请重试。": [
+    "Could not load the local library. Try again.",
+    "ローカル音源を読み込めませんでした。もう一度お試しください。",
+    "Lokale Bibliothek konnte nicht geladen werden. Bitte erneut versuchen.",
+    "Ne eblis ŝargi la lokan bibliotekon. Reprovu."
+  ],
+  "正计时": [
+    "Count up",
+    "カウントアップ",
+    "Aufwärts zählen",
+    "Suprenkalkulo"
+  ],
+  "拖动调整": [
+    "Drag to adjust",
+    "ドラッグで調整",
+    "Ziehen zum Anpassen",
+    "Trenu por agordi"
+  ],
+  "光环": [
+    "Halo",
+    "光輪",
+    "Lichtring",
+    "Aŭreolo"
+  ],
+  "液态": [
+    "Liquid",
+    "リキッド",
+    "Flüssigkeit",
+    "Likvaĵo"
+  ],
+  "水滴": [
+    "Droplet",
+    "しずく",
+    "Tropfen",
+    "Guto"
+  ],
+  "版本": [
+    "Version",
+    "バージョン",
+    "Version",
+    "Versio"
+  ],
+  "番茄红": [
+    "Tomato red",
+    "トマトレッド",
+    "Tomatenrot",
+    "Tomata ruĝo"
+  ],
+  "格致语录": [
+    "Words to focus by",
+    "集中のことば",
+    "Worte für den Fokus",
+    "Vortoj por koncentriĝi"
+  ],
+  "显示自律格言": [
+    "Show personal maxims",
+    "励ましのことばを表示",
+    "Leitsätze anzeigen",
+    "Montri personajn maksimojn"
+  ],
+  "每段计时换一句，大小窗保持一致": [
+    "A new line each timer segment, shared by both windows",
+    "タイマーごとに一文切り替え、両ウィンドウで共有",
+    "Ein neuer Satz pro Timerabschnitt, in beiden Fenstern gleich",
+    "Nova frazo por ĉiu tempoperiodo, sama en ambaŭ fenestroj"
+  ],
+  "没有语录或关闭显示时，恢复计时状态；提醒始终优先。": [
+    "Without a maxim, timer status is shown. Alerts always take priority.",
+    "ことばがない場合はタイマー状態を表示します。通知が優先されます。",
+    "Ohne Leitsatz wird der Timerstatus angezeigt. Hinweise haben Vorrang.",
+    "Sen maksimo aperas la tempmezurila stato. Atentigoj ĉiam havas prioritaton."
+  ],
+  "编辑语录": [
+    "Edit maxim",
+    "ことばを編集",
+    "Leitsatz bearbeiten",
+    "Redakti maksimon"
+  ],
+  "写一句给自己的话": [
+    "A line for yourself",
+    "自分へのことば",
+    "Ein Satz für dich",
+    "Frazo por vi mem"
+  ],
+  "例如：先做好眼前这一小步。": [
+    "For example: Start with this small step.",
+    "例：まず、目の前の小さな一歩を。",
+    "Zum Beispiel: Beginne mit diesem kleinen Schritt.",
+    "Ekzemple: Komencu per ĉi tiu eta paŝo."
+  ],
+  "添加语录": [
+    "Add maxim",
+    "ことばを追加",
+    "Leitsatz hinzufügen",
+    "Aldoni maksimon"
+  ],
+  "已保存的语录": [
+    "Saved maxims",
+    "保存したことば",
+    "Gespeicherte Leitsätze",
+    "Konservitaj maksimoj"
+  ],
+  "编辑第 {number} 条语录": [
+    "Edit maxim {number}",
+    "ことば {number} を編集",
+    "Leitsatz {number} bearbeiten",
+    "Redakti maksimon {number}"
+  ],
+  "删除第 {number} 条语录": [
+    "Delete maxim {number}",
+    "ことば {number} を削除",
+    "Leitsatz {number} löschen",
+    "Forigi maksimon {number}"
+  ],
+  "还没有语录，计时状态会正常显示。": [
+    "No maxims yet. Timer status is displayed as usual.",
+    "ことばはまだありません。タイマー状態を表示します。",
+    "Noch keine Leitsätze. Der Timerstatus wird wie gewohnt angezeigt.",
+    "Ankoraŭ neniuj maksimoj. La tempmezurila stato aperas normale."
+  ],
+  "最多保存 50 条语录。": [
+    "Save up to 50 maxims.",
+    "ことばは最大50件まで保存できます。",
+    "Bis zu 50 Leitsätze speichern.",
+    "Konservu ĝis 50 maksimojn."
+  ],
+  "语录请使用 1–120 个字。": [
+    "Use 1–120 characters.",
+    "1～120文字で入力してください。",
+    "1–120 Zeichen verwenden.",
+    "Uzu 1–120 signojn."
+  ],
+  "语录请使用 1–120 个字，不含控制字符。": [
+    "Use 1–120 characters without control characters.",
+    "制御文字を含めず、1～120文字で入力してください。",
+    "1–120 Zeichen ohne Steuerzeichen verwenden.",
+    "Uzu 1–120 signojn sen stirsignoj."
+  ],
+  "语录标识无效或重复。": [
+    "Invalid or duplicate maxim ID.",
+    "ことばのIDが無効か重複しています。",
+    "Ungültige oder doppelte Leitsatz-ID.",
+    "Nevalida aŭ duobla maksima identigilo."
+  ],
+  "先做好眼前这一小步。": [
+    "Start with this small step.",
+    "まず、目の前の小さな一歩を。",
+    "Beginne mit diesem kleinen Schritt.",
+    "Komencu per ĉi tiu eta paŝo."
+  ],
+  "把注意力，交给此刻。": [
+    "Give this moment your attention.",
+    "今、この瞬間に意識を向けよう。",
+    "Schenke diesem Moment deine Aufmerksamkeit.",
+    "Donu vian atenton al ĉi tiu momento."
+  ],
+  "慢一点，也在向前。": [
+    "Slow steps still move you forward.",
+    "ゆっくりでも、前に進んでいる。",
+    "Auch langsam geht es vorwärts.",
+    "Eĉ malrapidaj paŝoj antaŭenigas."
+  ],
+  "让行动先于犹豫。": [
+    "Let action come before hesitation.",
+    "ためらう前に、小さく動こう。",
+    "Lass dem Zögern eine kleine Tat zuvorkommen.",
+    "Lasu agon veni antaŭ hezito."
+  ],
+  "专注当下，日有所进。": [
+    "Focus on now. Make a little progress each day.",
+    "今に集中して、日々少しずつ。",
+    "Konzentriere dich auf jetzt. Jeden Tag ein Stück weiter.",
+    "Koncentriĝu je nun. Progresu iom ĉiutage."
+  ],
+  "把今天的坚持，留给明天的自己。": [
+    "Let today’s effort support your tomorrow.",
+    "今日の積み重ねを、明日の自分へ。",
+    "Lass die Mühe von heute dein Morgen tragen.",
+    "Lasu la hodiaŭan penon subteni vian morgaŭon."
+  ]
+}

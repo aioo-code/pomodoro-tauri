@@ -1,0 +1,21 @@
+import {readFileSync, mkdirSync, writeFileSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
+import {createHash, randomUUID} from 'node:crypto';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {root, env} from './environment.mjs';
+
+const build = JSON.parse(readFileSync(path.join(root, 'tmp/settings-build-current.json')));
+const exe = path.join(build.output, 'pomodoro-connected.exe');
+const run = path.join(build.output, 'acceptance', 'startup-diagnostic-' + randomUUID());
+mkdirSync(run, {recursive:true});
+const call = spawnSync(exe, ['--qa-hidden', '--qa-preferences-file=relative.json', '--tool-data-dir=' + path.join(run, 'tool-state')], {cwd:run, env, windowsHide:true, encoding:'utf8', timeout:15000});
+writeFileSync(path.join(run, 'observed.json'), JSON.stringify({status:call.status, error:String(call.error ?? ''), stderr:call.stderr, stdout:call.stdout}, null, 2));
+if (call.error) throw call.error;
+assert.equal(call.status, 1, call.stderr);
+const log = path.join(run, 'startup-error.log');
+assert.ok(readFileSync(log, 'utf8').includes('设置文件路径必须是绝对路径'));
+assert.ok(!call.stderr.includes('panicked at'));
+const result = {passed:true, version:build.version, sha256:createHash('sha256').update(readFileSync(exe)).digest('hex'), exitCode:call.status, log, errors:[], method:'Owned hidden QA process with deliberate invalid setup input; exits with the original error logged. User-facing modal is suppressed in QA.'};
+writeFileSync(path.join(build.output, 'acceptance/startup-diagnostic-result.json'), JSON.stringify(result, null, 2));
+console.log(JSON.stringify(result));

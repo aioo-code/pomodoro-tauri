@@ -1,0 +1,34 @@
+{
+  "commit": "4dc7b5b7772e1217c8fb8d2a7aa074302180e5b4",
+  "retrievedAt": "2026-11-08T04:27:23.620Z",
+  "files": {
+    "SloshGauge.tsx": {
+      "path": "src/ts-default/Micro/SloshGauge/SloshGauge.tsx",
+      "upstreamBlob": "52750ab2b9c073bccc55eb090173348e82225717",
+      "upstreamSha256": "430be4dcf7ae65fc55e7941baf217b91f0ab0351b1f19deae9b7859a801cc056",
+      "adaptedSha256": "255747d6905d08734d59452089f8b28581f205a4e000391f421a95ab35d40ef4"
+    },
+    "SloshGauge.css": {
+      "path": "src/ts-default/Micro/SloshGauge/SloshGauge.css",
+      "upstreamBlob": "95d9b50f48e22bf485af7f4a8a841ffb21638b06",
+      "upstreamSha256": "2770955520f32bbd05939e70e63228492b9798a197b66a78d68847d5939cabe0",
+      "adaptedSha256": "2770955520f32bbd05939e70e63228492b9798a197b66a78d68847d5939cabe0"
+    },
+    "StatusMark.tsx": {
+      "path": "src/ts-default/Micro/StatusMark/StatusMark.tsx",
+      "upstreamBlob": "a7cf62eee254860876e2a22c4db971e56a25ca02",
+      "upstreamSha256": "569d152892cb788cf5f1b602542fc67bc77faa89fde7cc1f1482cdfc7d3a8959",
+      "adaptedSha256": "47fabd23487b9a53d5d1f24e02c94b320f4c692ae03729dc97c63f12836d3934"
+    },
+    "StatusMark.css": {
+      "path": "src/ts-default/Micro/StatusMark/StatusMark.css",
+      "upstreamBlob": "f4238cfed225f4f8577df18049057fef5f6272aa",
+      "upstreamSha256": "9c46c47df3729a4e1d258d7a77521faa08fc445fd1ea8b8c4ade8bdb8c2e45c9",
+      "adaptedSha256": "9c46c47df3729a4e1d258d7a77521faa08fc445fd1ea8b8c4ade8bdb8c2e45c9"
+    }
+  },
+  "adaptations": {
+    "SloshGauge": "Original liquid physics retained. Application motion preference override and cancelled-frame cleanup added. A read-only themed level, driven by real countdown progress.",
+    "StatusMark": "Original determinate spring arc and state morph retained. Application motion preference override added. Actual remaining fraction, never an indeterminate loading indicator."
+  }
+}

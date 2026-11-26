@@ -1,0 +1,11 @@
+name: Feature request
+description: Suggest an improvement to Pomodoro Timer
+title: "[Feature] "
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What should the timer let you do?
+      description: Describe the current workflow and the behavior you would like.
+    validations:
+      required: true

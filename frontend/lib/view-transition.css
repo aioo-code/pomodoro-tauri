@@ -1,0 +1,27 @@
+.app-shell:not(.is-mini) main { view-transition-name:timer-scene; }
+.app-shell #time:not(.sr-only) { view-transition-name:timer-value; }
+.app-shell .clock-section { view-transition-name:timer-face; }
+.app-shell .app-mark { view-transition-name:application-mark; }
+::view-transition { pointer-events:none; }
+::view-transition-group(*) { animation-duration:240ms; animation-timing-function:cubic-bezier(.22,1,.36,1); }
+::view-transition-old(root),::view-transition-new(root) { animation-duration:160ms; mix-blend-mode:normal; }
+::view-transition-old(timer-scene) { animation:scene-away 140ms ease both; }
+::view-transition-new(timer-scene) { animation:scene-arrive 240ms cubic-bezier(.22,1,.36,1) both; }
+::view-transition-old(timer-face),::view-transition-old(timer-value) { animation:clock-away 120ms ease both; }
+::view-transition-new(timer-face),::view-transition-new(timer-value) { animation:clock-arrive 240ms cubic-bezier(.22,1,.36,1) both; }
+html[data-scene-transition="settings-close"]::view-transition-old(timer-scene) { animation-name:scene-return-away; }
+html[data-scene-transition="settings-close"]::view-transition-new(timer-scene) { animation-name:scene-return; }
+html[data-scene-transition="window"] .clock-section,html[data-scene-transition="window"] #time,html[data-scene-transition="window"] main { view-transition-name:none; }
+html[data-scene-transition="window"]::view-transition-group(root) { animation:none; width:100%;height:100%; }
+html[data-scene-transition="window"]::view-transition-old(root) { animation:window-away 90ms ease both; }
+html[data-scene-transition="window"]::view-transition-new(root) { animation:window-arrive 190ms ease-out both; }
+@keyframes scene-away { to {opacity:0;transform:translateY(-8px);filter:blur(3px)} }
+@keyframes scene-arrive { from {opacity:0;transform:translateY(10px);filter:blur(4px)} to {opacity:1;transform:none;filter:none} }
+@keyframes scene-return-away { to {opacity:0;transform:translateY(8px);filter:blur(3px)} }
+@keyframes scene-return { from {opacity:0;transform:translateY(-8px);filter:blur(4px)} to {opacity:1;transform:none;filter:none} }
+@keyframes clock-away { to {opacity:0;filter:blur(3px)} }
+@keyframes clock-arrive { from {opacity:0;filter:blur(5px)} to {opacity:1;filter:none} }
+@keyframes window-away { to {opacity:0} }
+@keyframes window-arrive { from {opacity:0;filter:blur(3px)} to {opacity:1;filter:none} }
+html[data-app-reduced-motion="true"]::view-transition-group(*),html[data-app-reduced-motion="true"]::view-transition-old(*),html[data-app-reduced-motion="true"]::view-transition-new(*) { animation:none; }
+@media(prefers-reduced-motion:reduce) { ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*) { animation:none; } }

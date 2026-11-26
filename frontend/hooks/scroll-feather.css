@@ -1,0 +1,39 @@
+.settings-viewport {
+  --settings-fade-top: 0px;
+  --settings-fade-bottom: 0px;
+  --settings-scrollbar-width: 0px;
+  /* Smooth alpha at the OUTER clip, not a tinted rectangle over the content.
+     The separate right-hand mask leaves the native scrollbar untouched. */
+  --settings-edge-mask: linear-gradient(to bottom,
+    transparent 0,
+    rgb(0 0 0 / .002) calc(var(--settings-fade-top) * .0625),
+    rgb(0 0 0 / .016) calc(var(--settings-fade-top) * .125),
+    rgb(0 0 0 / .104) calc(var(--settings-fade-top) * .25),
+    rgb(0 0 0 / .275) calc(var(--settings-fade-top) * .375),
+    rgb(0 0 0 / .5) calc(var(--settings-fade-top) * .5),
+    rgb(0 0 0 / .725) calc(var(--settings-fade-top) * .625),
+    rgb(0 0 0 / .896) calc(var(--settings-fade-top) * .75),
+    rgb(0 0 0 / .984) calc(var(--settings-fade-top) * .875),
+    rgb(0 0 0 / .998) calc(var(--settings-fade-top) * .9375),
+    #000 var(--settings-fade-top),
+    #000 calc(100% - var(--settings-fade-bottom)),
+    rgb(0 0 0 / .998) calc(100% - var(--settings-fade-bottom) * .9375),
+    rgb(0 0 0 / .984) calc(100% - var(--settings-fade-bottom) * .875),
+    rgb(0 0 0 / .896) calc(100% - var(--settings-fade-bottom) * .75),
+    rgb(0 0 0 / .725) calc(100% - var(--settings-fade-bottom) * .625),
+    rgb(0 0 0 / .5) calc(100% - var(--settings-fade-bottom) * .5),
+    rgb(0 0 0 / .275) calc(100% - var(--settings-fade-bottom) * .375),
+    rgb(0 0 0 / .104) calc(100% - var(--settings-fade-bottom) * .25),
+    rgb(0 0 0 / .016) calc(100% - var(--settings-fade-bottom) * .125),
+    rgb(0 0 0 / .002) calc(100% - var(--settings-fade-bottom) * .0625),
+    transparent 100%), linear-gradient(#000,#000);
+  mask-image: var(--settings-edge-mask);
+  -webkit-mask-image: var(--settings-edge-mask);
+  mask-size: calc(100% - var(--settings-scrollbar-width)) 100%,var(--settings-scrollbar-width) 100%;
+  -webkit-mask-size: calc(100% - var(--settings-scrollbar-width)) 100%,var(--settings-scrollbar-width) 100%;
+  mask-position: left top,right top;
+  -webkit-mask-position: left top,right top;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+}
+.settings-scroll { scroll-padding-block: 36px; }

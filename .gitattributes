@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.png binary
+*.ico binary
+*.icns binary
+*.woff2 binary
+*.rgba binary
+frontend/components/reactbits/** -text whitespace=cr-at-eol
+frontend/public/fonts/OFL-Outfit.txt -text whitespace=-blank-at-eol

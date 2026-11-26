@@ -1,0 +1,26 @@
+{
+  "files": {
+    "GradualBlur.tsx": "src/ts-default/Animations/GradualBlur/GradualBlur.tsx",
+    "ChromaGrid.css": "src/ts-default/Components/ChromaGrid/ChromaGrid.css",
+    "GradualBlur.css": "src/ts-default/Animations/GradualBlur/GradualBlur.css",
+    "ChromaGrid.tsx": "src/ts-default/Components/ChromaGrid/ChromaGrid.tsx",
+    "LICENSE.md": "LICENSE.md",
+    "SpotlightCard.tsx": "src/ts-default/Components/SpotlightCard/SpotlightCard.tsx",
+    "SpotlightCard.css": "src/ts-default/Components/SpotlightCard/SpotlightCard.css"
+  },
+  "retrievedAt": "2026-11-08T00:20:51.8832421Z",
+  "commit": "4dc7b5b7772e1217c8fb8d2a7aa074302180e5b4",
+  "changes": {
+    "GradualBlur": "Official component configured as one 8px masked pass per settings edge, with auto hide. An authored smooth alpha mask feathers both content and blur into the transparent shell; a separate strip preserves the scrollbar. Avoids opaque clipping edges and compounded transparent backdrop brightness.",
+    "ChromaGrid": "Damped pointer tracking and soft radial reveal adapted to a semantic timer button; theme wash, localized light and border glow; mouse only, idle frame suspension and cleanup. The button uses a satin top-to-bottom finish, inset rim and the reference dark/light cast-shadow profiles.",
+    "SpotlightCard": "Official smooth pointer/focus spotlight applied to the whole app shell with a transparent surface; no nested frame or base border. App reduced motion/settings/mini disable tracking; mouse only; main-button hover suppresses shell light; native window geometry/shadow preserved."
+  },
+  "sha256": {
+    "GradualBlur.tsx": "e7af7a0efb53c5266849a7ae3b5ec07c42a98a16f84b8003a7ac763194ac45bc",
+    "GradualBlur.css": "de9d5c313982db8f05629b3b63b019ca5bc8574d1f37d13cf2a4d51e0c45b991",
+    "ChromaGrid.tsx": "f61fc9c3b32de200594ccc1a1bc2f66c2a9e21960a00700d39b9c9c698ee42b9",
+    "ChromaGrid.css": "ebb2e62a60a660b00f357aea7a5868d9db5a4e35514a52c32cc395e2f22ed9a9",
+    "SpotlightCard.tsx": "581d8859b8b780a61f3710b5d39b9e37a365742626cf30858a5fdbfbfb4d8807",
+    "SpotlightCard.css": "b646b7da4bb46f0a4d819d0af275804c49a845a5c2dc848700aaf9282db13a92"
+  }
+}

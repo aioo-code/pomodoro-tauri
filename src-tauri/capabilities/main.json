@@ -1,0 +1,6 @@
+{
+  "identifier": "main",
+  "description": "Allow dragging the local custom title bar.",
+  "windows": ["main"],
+  "permissions": ["core:window:allow-start-dragging", "core:window:allow-close"]
+}

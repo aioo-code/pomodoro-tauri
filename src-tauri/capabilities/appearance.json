@@ -1,0 +1,6 @@
+{
+  "identifier": "appearance-sync",
+  "description": "Receive local appearance changes in the clock and reminder windows.",
+  "windows": ["main", "reminder"],
+  "permissions": ["core:event:allow-listen", "core:event:allow-unlisten"]
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 256 256">
+<defs><linearGradient id="petal" x1="70" y1="25" x2="176" y2="219" gradientUnits="userSpaceOnUse"><stop stop-color="#ffb5e5"/><stop offset=".42" stop-color="#ed6bc4"/><stop offset="1" stop-color="#8d4de0"/></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lilac" x1="52" y1="63" x2="202" y2="187"><stop stop-color="#c0a5ff"/><stop offset="1" stop-color="#6858db"/></linearGradient><radialGradient id="face" cx=".3" cy=".1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f6e9ff"/></radialGradient></defs>
+<ellipse cx="128" cy="230" rx="78" ry="6" fill="#6a3b87" opacity=".12"/>
+<path d="M128 121C79 99 69 65 88 35c18-30 60-26 75 0 17 29 3 60-35 86Z" fill="url(#petal)"/>
+<path d="M136 128c22-49 56-59 86-40 30 18 26 60 0 75-29 17-60 3-86-35Z" fill="url(#lilac)"/>
+<path d="M128 136c49 22 59 56 40 86-18 30-60 26-75 0-17-29-3-60 35-86Z" fill="url(#petal)"/>
+<path d="M120 128C98 177 64 187 34 168c-30-18-26-60 0-75 29-17 60-3 86 35Z" fill="url(#lilac)"/>
+<circle cx="128" cy="128" r="54" fill="#6840a4" opacity=".14"/><circle cx="128" cy="124" r="48" fill="url(#face)"/>
+<path d="M128 94v31l21 14" fill="none" stroke="#8253bd" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

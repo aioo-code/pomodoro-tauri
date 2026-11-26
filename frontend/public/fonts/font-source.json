@@ -1,0 +1,46 @@
+{
+  "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/Outfit%5Bwght%5D.ttf",
+  "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/OFL.txt",
+  "sourceSha256": "fc7287273e66929776e2ba54f144fe699080bec29f61bf649d70d871468aeade",
+  "sha256": "33728499c4b0500ac82f8a2a63feb8f98515b9e7ad5d733668f70b6c7cdbca20",
+  "file": "cos-timer-digits-33728499c4b0.woff2",
+  "fontTools": "4.68.0",
+  "weight": 700,
+  "characters": "0123456789:",
+  "adaptation": "Static weight; renamed; compact tabular digit advances 670, colon 230; centered digits and newly drawn centered colon dots; no alphabet glyphs; no hinting; WOFF2.",
+  "variants": [
+    {
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/Outfit%5Bwght%5D.ttf",
+      "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/OFL.txt",
+      "sourceSha256": "fc7287273e66929776e2ba54f144fe699080bec29f61bf649d70d871468aeade",
+      "sha256": "c17642d940d18523189ab4ae201d422795d4109ab40f79d5e99ac8e1a44b66dd",
+      "file": "cos-timer-digits-light-c17642d940d1.woff2",
+      "fontTools": "4.68.0",
+      "weight": 350,
+      "characters": "0123456789:",
+      "adaptation": "Static weight; renamed; compact tabular digit advances 670, colon 230; centered digits and newly drawn centered colon dots; no alphabet glyphs; no hinting; WOFF2."
+    },
+    {
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/Outfit%5Bwght%5D.ttf",
+      "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/OFL.txt",
+      "sourceSha256": "fc7287273e66929776e2ba54f144fe699080bec29f61bf649d70d871468aeade",
+      "sha256": "33728499c4b0500ac82f8a2a63feb8f98515b9e7ad5d733668f70b6c7cdbca20",
+      "file": "cos-timer-digits-33728499c4b0.woff2",
+      "fontTools": "4.68.0",
+      "weight": 700,
+      "characters": "0123456789:",
+      "adaptation": "Static weight; renamed; compact tabular digit advances 670, colon 230; centered digits and newly drawn centered colon dots; no alphabet glyphs; no hinting; WOFF2."
+    },
+    {
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/Outfit%5Bwght%5D.ttf",
+      "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/OFL.txt",
+      "sourceSha256": "fc7287273e66929776e2ba54f144fe699080bec29f61bf649d70d871468aeade",
+      "sha256": "ffb50dacbbc1b3a961ba23c9ed4bd7a8389d3ae2d5091bc25987efe5fb9ccef8",
+      "file": "cos-timer-digits-extrabold-ffb50dacbbc1.woff2",
+      "fontTools": "4.68.0",
+      "weight": 800,
+      "characters": "0123456789:",
+      "adaptation": "Static weight; renamed; compact tabular digit advances 670, colon 230; centered digits and newly drawn centered colon dots; no alphabet glyphs; no hinting; WOFF2."
+    }
+  ]
+}

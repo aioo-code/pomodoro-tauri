@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 256 256">
+<defs>
+<radialGradient id="fruit" cx=".32" cy=".23" r=".95"><stop stop-color="#fa7061"/><stop offset=".52" stop-color="#f0534f"/><stop offset="1" stop-color="#e4444c"/></radialGradient>
+<linearGradient id="leaf" x1="96" y1="32" x2="160" y2="101" gradientUnits="userSpaceOnUse"><stop stop-color="#75bc76"/><stop offset="1" stop-color="#3e9e69"/></linearGradient>
+</defs>
+<path d="M128 75C99 55 58 65 38 94c-22 32-19 76 7 105 22 25 53 35 83 33 31 2 63-9 84-33 26-29 29-73 7-105-20-29-61-39-91-19Z" fill="url(#fruit)"/>
+<path d="M128 77c-5-19-2-36 10-49" fill="none" stroke="#29965c" stroke-width="12" stroke-linecap="round"/>
+<path d="M128 70c-17-18-36-23-58-18 9 18 21 28 42 29-21 5-34 18-40 36 25 0 43-10 55-28 7 23 24 36 47 40-2-24-13-40-31-48 22 0 38-10 48-26-23-7-44-2-63 15Z" fill="url(#leaf)"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 256 256">
+<defs><linearGradient id="planet" x1="60" y1="40" x2="195" y2="216" gradientUnits="userSpaceOnUse"><stop stop-color="#73e4ff"/><stop offset=".4" stop-color="#3b8df5"/><stop offset="1" stop-color="#5832c5"/></linearGradient><linearGradient id="ring" x1="30" y1="190" x2="226" y2="60" gradientUnits="userSpaceOnUse"><stop stop-color="#956bff"/><stop offset=".45" stop-color="#e2d3ff"/><stop offset="1" stop-color="#52d9f5"/></linearGradient><radialGradient id="gloss" cx=".3" cy=".15" r=".8"><stop stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="128" cy="229" rx="70" ry="7" fill="#473881" opacity=".13"/>
+<ellipse cx="128" cy="128" rx="115" ry="48" transform="rotate(-32 128 128)" fill="none" stroke="url(#ring)" stroke-width="15"/>
+<circle cx="128" cy="123" r="84" fill="url(#planet)"/>
+<path d="M65 84c22-33 75-46 111-13-38-20-76-9-111 13Z" fill="url(#gloss)"/>
+<path d="M29 175c-6 27 30 36 81 24 53-13 105-49 119-75" fill="none" stroke="url(#ring)" stroke-width="16" stroke-linecap="round"/>
+<circle cx="210" cy="51" r="12" fill="#bca6ff"/><circle cx="47" cy="75" r="5" fill="#67d9f4"/>
+<path d="M128 80v43l29 19" fill="none" stroke="#f1fcff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
