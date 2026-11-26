@@ -53,7 +53,6 @@ cpSync(path.join(root, 'frontend/components/reactbits/ElasticSlider.LICENSE.md')
 cpSync(path.join(root, 'frontend/components/reactbits/micro-sources.json'), path.join(output, 'licenses/react-bits-sources.json'));
 cpSync(path.join(root, 'frontend/components/reactbits/TimerEffects.LICENSE.md'), path.join(output, 'licenses/react-bits-timer-effects.md'));
 cpSync(path.join(root, 'frontend/components/reactbits/timer-effect-sources.json'), path.join(output, 'licenses/react-bits-timer-effect-sources.json'));
-cpSync(path.join(root, 'src-tauri/icons'), path.join(output, 'icons'), {recursive: true});
 cpSync(path.join(root, 'LICENSE'), path.join(output, 'licenses/LICENSE'));
 cpSync(path.join(root, 'THIRD_PARTY_NOTICES.md'), path.join(output, 'licenses/THIRD_PARTY_NOTICES.md'));
 writeFileSync(path.join(output,'start.ps1'),readFileSync(path.join(root,'packaging/windows/start.ps1'),'utf8'));

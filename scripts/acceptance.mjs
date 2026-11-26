@@ -83,7 +83,16 @@ async function launch(seconds) {
     const api=window.__TAURI__,native=api.core.invoke;
     window.__TAURI__={...api,core:{...api.core,invoke:(command,args,...rest)=>{if(command==='dismiss_reminder')window.__qaDismissTrace.push({kind:'dismiss-call',at:performance.now(),stack:new Error().stack});return native(command,args,...rest);}}};
     document.addEventListener('keydown',event=>window.__qaDismissTrace.push({kind:'key',key:event.key,trusted:event.isTrusted,at:performance.now()}),true);
-    document.addEventListener('click',event=>window.__qaDismissTrace.push({kind:'click',id:event.target.closest?.('button')?.id,trusted:event.isTrusted,at:performance.now()}),true);
+    document.addEventListener('click', event => {
+      const id = event.target.closest?.('button')?.id;
+      window.__qaDismissTrace.push({kind:'click',id,trusted:event.isTrusted,at:performance.now()});
+      // This fixture dismisses through element.click(). A desktop click can
+      // otherwise close its visible reminder during the retention check.
+      if (event.isTrusted && ['dismiss', 'close-reminder'].includes(id)) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    }, true);
   });
 }
 async function close() {

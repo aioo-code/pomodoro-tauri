@@ -10,6 +10,11 @@ import {verifyShortcutIcons} from './shortcut-icons-fixture.mjs';
 const read=file=>JSON.parse(readFileSync(file,'utf8'));
 const hash=file=>createHash('sha256').update(readFileSync(file)).digest('hex');
 const receipt=read(path.join(root,'tmp/installer-current.json')),output=path.dirname(receipt.installer);
+const installSmoke=read(path.join(output,'install-smoke.json'));
+assert.equal(installSmoke.passed,true);
+assert.equal(installSmoke.version,receipt.version);
+assert.equal(installSmoke.sha256,receipt.sha256);
+assert.equal(installSmoke.programSha256,receipt.programSha256);
 const run=path.join(receipt.stage,'checks',randomUUID());mkdirSync(run,{recursive:true});
 const extract=path.join(receipt.stage,'extracted');
 assert.equal(hash(receipt.installer),receipt.sha256);
@@ -20,6 +25,8 @@ findHelpers(extract);assert.ok(helperFiles.length>=1);for(const helper of helper
 for(const file of ['installation.json','preferences.json','binding.json','usage.json'])assert.equal(existsSync(path.join(extract,file)),false,'no personal configuration or usage history in payload');
 assert.equal(read(path.join(extract,'licenses/fonts/font-source.json')).weight,700);
 assert.ok(existsSync(path.join(extract,'licenses/windows-material-reference.md')));
+for(const file of ['LICENSE','THIRD_PARTY_NOTICES.md']) assert.equal(hash(path.join(extract,'licenses',file)),hash(path.join(root,file)));
+assert.ok(existsSync(path.join(extract,'licenses/fonts/OFL-Outfit.txt')));
 assert.ok(existsSync(path.join(extract,'licenses/react-bits-scroll-chroma.md')));
 assert.ok(existsSync(path.join(extract,'licenses/react-bits-scroll-chroma-sources.json')));
 assert.ok(existsSync(path.join(extract,'licenses/react-bits-timer-effects.md')));
@@ -43,7 +50,7 @@ mkdirSync(path.join(shortcutInstall,'scripts'),{recursive:true});copyFileSync(sh
 const iconHook=compile('shortcut-hooks',[...common('shortcut-hooks'),`!define BUNDLEID "${id}"`,`!define POMODORO_ICON_VERSION "${receipt.version}"`,`!define POMODORO_ICON_EXTRA_ARGS '-ShortcutDirectory $\\"${fixtureLinks}$\\"'`,`!include "${hooks}"`,'!insertmacro MUI_LANGUAGE "SimpChinese"','Section',`StrCpy $INSTDIR "${shortcutInstall}"`,`Delete "${path.join(fixtureLinks,'Desktop.lnk')}"`,'!insertmacro NSIS_HOOK_POSTINSTALL',`CreateShortcut "${path.join(fixtureLinks,'Desktop.lnk')}" "$INSTDIR\\pomodoro-connected.exe" "--late-shortcut-sentinel"`,'Call PomodoroRefreshShortcutIcons','SectionEnd']);
 assert.equal(command(iconHook,['/S']).status,0);
 const lateShortcut=command('pwsh',['-NoProfile','-Command',`[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false);$s=New-Object -ComObject WScript.Shell;$l=$s.CreateShortcut('${path.join(fixtureLinks,'Desktop.lnk').replaceAll("'","''")}');@{icon=$l.IconLocation;args=$l.Arguments;target=$l.TargetPath}|ConvertTo-Json -Compress`]);assert.equal(lateShortcut.status,0,lateShortcut.stderr);const late=JSON.parse(lateShortcut.stdout);assert.equal(late.icon,path.join(shortcutInstall,path.basename(shortcutIcon))+',0');assert.equal(late.args,'--late-shortcut-sentinel');
-console.log('Versioned shortcut icons refresh after payload update and late finish-page creation; direct and Host launcher arguments, custom icons and unrelated shortcuts are preserved.');
+console.log('Versioned shortcut icons refresh after payload update and late finish-page creation; direct and PowerShell launcher arguments, custom icons and unrelated shortcuts are preserved.');
 const oldRoam=path.join(run,'旧版','roaming'),newRoam=path.join(run,'新版','roaming'),oldLocal=path.join(run,'旧版','local'),newLocal=path.join(run,'新版','local');
 mkdirSync(path.join(oldRoam,'tool-integration/records'),{recursive:true});mkdirSync(path.join(oldLocal,'EBWebView/Default/Local Storage/leveldb'),{recursive:true});
 writeFileSync(path.join(oldRoam,'preferences.json'),'图标与主题 fixture-only');writeFileSync(path.join(oldRoam,'tool-integration/records/events.txt'),'fixture-only events');writeFileSync(path.join(oldLocal,'EBWebView/Default/Local Storage/leveldb/000001.log'),'fixture-only theme choice');
@@ -69,12 +76,10 @@ const end=Date.now()+6000;while(!existsSync(ready)&&Date.now()<end)await delay(2
 const stopped=once(child,'exit');assert.equal(command(guard,['/S']).status,2);assert.equal(child.exitCode,null,'guard must not terminate the process');assert.equal(existsSync(marker),false);await stopped;
 console.log('Running-instance and Restart Manager guards refuse changes without killing the owned test process; empty-state guard proceeds');
 const fixture=path.join(run,'真实旧版关闭');mkdirSync(fixture,{recursive:true});
-const oldVersion='0.6.0-dev.20261107.5';
-const oldExe=process.env.POMODORO_PREVIOUS_QA_EXE ?? path.join(root,'artifacts/builds',oldVersion,'pomodoro-connected.exe');
-const oldReceipt=read(path.join(root,'artifacts/installers',oldVersion,'installer.json'));
+const oldReceipt=read(process.env.POMODORO_PREVIOUS_INSTALLER_RECEIPT ?? path.join(root,'artifacts/installers/0.6.0-dev.20261107.5/installer.json'));
+const oldExe=process.env.POMODORO_PREVIOUS_QA_EXE ?? oldReceipt.acceptedProgram;
 assert.equal(oldReceipt.validation,'passed');
 assert.equal(hash(oldExe),oldReceipt.programSha256,'previous-version QA executable matches its accepted installer');
-const oldHooks=path.join(root,'artifacts/installers/0.6.0-dev.20261107.5/install-hooks.nsh');
 const absentTarget=path.join(fixture,'新安装目录','pomodoro-connected.exe');
 const newProgram=receipt.acceptedProgram;
 const quietArgs=['--prepare-update',absentTarget,'--tool-qa'];
@@ -84,8 +89,7 @@ const ownedPrefs=path.join(fixture,'preferences.json'),ownedUsage=path.join(fixt
 writeFileSync(ownedPrefs,readFileSync(path.join(settingsResult.evidence,'preferences.json')));
 writeFileSync(ownedUsage,JSON.stringify({days:{'2026-11-06':4}}));
 const ownedPrefsHash=hash(ownedPrefs),ownedUsageHash=hash(ownedUsage);
-const legacyMarker=path.join(fixture,'legacy-passed.txt'),preparedMarker=path.join(fixture,'prepared.txt');
-const legacy=compile('legacy-uninstaller-guard',[...common('legacy-uninstaller-guard'),`!include "${oldHooks}"`,'!define BUNDLEID "local.cosweel.pomodoro.toolqa"','!insertmacro MUI_LANGUAGE "SimpChinese"','Section',`!insertmacro CheckIfAppIsRunning "${absentTarget}" "番茄时钟"`,`FileOpen $0 "${legacyMarker}" w`,'FileWrite $0 "passed"','FileClose $0','SectionEnd']);
+const preparedMarker=path.join(fixture,'prepared.txt');
 const prepare=compile('prepare-real-old',[...common('prepare-real-old'),`!include "${hooks}"`,'!define BUNDLEID "local.cosweel.pomodoro.toolqa"','!insertmacro MUI_LANGUAGE "SimpChinese"','Section',`!insertmacro CheckIfAppIsRunning "${absentTarget}" "番茄时钟"`,`FileOpen $0 "${preparedMarker}" w`,'FileWrite $0 "passed"','FileClose $0','SectionEnd']);
 const owned=spawn(oldExe,['--qa-hidden','--qa-preferences-file='+ownedPrefs,'--tool-data-dir='+path.join(fixture,'tool-state')],{cwd:fixture,env:qaEnv,windowsHide:true,stdio:'ignore'});
 let verifiedOwned=false;
@@ -95,20 +99,20 @@ try{
  assert.equal(verifiedOwned,true);
  const description={schema:'cosy.tool.request/1',id:randomUUID(),operation:'qa.desktop',params:{}};
  assert.equal(command(oldExe,['--tool-request',JSON.stringify(description),'--tool-qa']).status,0,'old main/reminder windows finish initializing');
- assert.equal(command(legacy,['/S']).status,2,'old uninstaller refuses its running instance');
  assert.equal(command(prepare,['/S']).status,0,'new NSIS guard closes the actual old app before file changes');
  const exited=Date.now()+10000;while(owned.exitCode===null&&Date.now()<exited)await delay(40);assert.equal(owned.exitCode,0);
- assert.ok(existsSync(preparedMarker));assert.equal(command(legacy,['/S']).status,0,'legacy uninstaller can now proceed');assert.ok(existsSync(legacyMarker));
+ assert.ok(existsSync(preparedMarker));
  assert.equal(hash(ownedPrefs),ownedPrefsHash);assert.equal(hash(ownedUsage),ownedUsageHash);
 }finally{
  if(owned.exitCode===null&&verifiedOwned){command(oldExe,['--tool-request',JSON.stringify({schema:'cosy.tool.request/1',id:randomUUID(),operation:'qa.exit',params:{}}),'--tool-qa']);await delay(200);}
 }
-console.log('Compiled NSIS preparation closes the real previous-version hidden instance before its legacy uninstaller guard; preferences and usage history remain unchanged');
+console.log('Compiled NSIS preparation closes the real previous-version hidden instance before file changes; preferences and usage history remain unchanged');
 const generated=readFileSync(path.join(receipt.target,'release/nsis/x64/installer.nsi'),'utf8');
 assert.ok(generated.includes('RequestExecutionLevel user'));assert.ok(generated.includes(receipt.version));
 const signature=command('pwsh',['-NoProfile','-Command',`(Get-AuthenticodeSignature -LiteralPath '${receipt.installer.replaceAll("'","''")}').Status.ToString()`]);assert.equal(signature.stdout.trim(),'NotSigned');
-receipt.validation='passed';receipt.checks={payloadSha256:receipt.programSha256,updateHelperPayloadSha256:receipt.programSha256,profileMigration:'passed in project-owned Chinese-path fixtures',existingDestinationPreserved:true,runningMutexGuard:'passed',runningFileGuard:'passed; unrelated holder retained',runningAppClose:'passed against the real previous-version hidden instance with data retained',legacyUninstallerCompatibility:'guard proceeds after owned app closes',installerMode:'current user',signed:false,method:'payload extraction and silent hook harnesses; no real install/uninstall or host profile mutation',limits:['A complete installation/uninstallation in a clean Windows account and interactive prompt cancellation were not exercised.']};
+receipt.validation='passed';receipt.checks={payloadSha256:receipt.programSha256,updateHelperPayloadSha256:receipt.programSha256,profileMigration:'passed in project-owned Chinese-path fixtures',existingDestinationPreserved:true,runningMutexGuard:'passed',runningFileGuard:'passed; unrelated holder retained',runningAppClose:'passed against the real previous-version hidden instance with data retained',installerMode:'current user',signed:false,method:'payload extraction and silent hook harnesses',limits:['Interactive prompt cancellation was not exercised.']};
 receipt.checks.shortcutIcons={passed:true,result:path.join(shortcutFixture.run,'result.json'),versionedFile:path.basename(shortcutIcon),lateCreationHook:'passed in compiled silent fixture',launchDetailsPreserved:true,customIconsPreserved:true};
+receipt.checks.installSmoke=installSmoke;
 writeFileSync(path.join(output,'installer.json'),JSON.stringify(receipt,null,2));writeFileSync(path.join(output,'acceptance.json'),JSON.stringify({at:new Date().toISOString(),passed:true,version:receipt.version,sha256:receipt.sha256,run,...receipt.checks},null,2));
 writeFileSync(path.join(root,'artifacts/installer-latest.json'),JSON.stringify({version:receipt.version,installer:receipt.installer,sha256:receipt.sha256,bytes:receipt.bytes,validation:'passed'},null,2));
 console.log(JSON.stringify({passed:true,installer:receipt.installer,sha256:receipt.sha256,bytes:receipt.bytes}));

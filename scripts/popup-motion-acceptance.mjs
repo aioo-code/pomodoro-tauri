@@ -76,10 +76,26 @@ try{
  await page.locator('#mini').evaluate(e=>{e.click();e.click();e.click();});await page.waitForFunction(()=>document.body.classList.contains('mini'));
  assert.deepEqual(await page.evaluate(()=>window.__nativeActions),['mini']);
  assert.equal(await page.evaluate(()=>window.__motionTrace.filter(item=>item.scene==='window').length),0,'Native geometry changes do not wait for compositor snapshots');
- const initialMiniView=await page.locator('.mini-time-control').getAttribute('data-view'),beforeMiniSwitch=await clock();
- await page.locator('.mini-time-control').evaluate(e=>e.click());await wait(()=>page.locator('.mini-time-control').getAttribute('data-view').then(v=>v!==initialMiniView),'mini visual toggle');
- await delay(40);
- const miniBlend=await page.evaluate(()=>{const a=document.querySelector('.mini-view-digits'),b=document.querySelector('.mini-view-progress');return{a:Number(getComputedStyle(a).opacity),b:Number(getComputedStyle(b).opacity),duration:getComputedStyle(a).transitionDuration,width:a.getBoundingClientRect().width,otherWidth:b.getBoundingClientRect().width};});
+ const beforeMiniSwitch=await clock();
+ const miniBlend=await page.locator('.mini-time-control').evaluate(control=>new Promise((resolve,reject)=>{
+  const a=control.querySelector('.mini-view-digits'),b=control.querySelector('.mini-view-progress');
+  // Commit the old styles and sample each CSS transition at its midpoint.
+  // The hidden WebView's frame clock need not advance in wall-clock time.
+  getComputedStyle(a).opacity;
+  getComputedStyle(b).opacity;
+  const observer=new MutationObserver(()=>{
+   observer.disconnect();clearTimeout(deadline);
+   const duration=getComputedStyle(a).transitionDuration;
+   getComputedStyle(b).opacity;
+   const animations=[a,b].flatMap(layer=>layer.getAnimations().filter(animation=>animation.transitionProperty==='opacity'));
+   for(const animation of animations)animation.currentTime=animation.effect.getComputedTiming().duration/2;
+   resolve({a:Number(getComputedStyle(a).opacity),b:Number(getComputedStyle(b).opacity),duration,animations:animations.length,width:a.getBoundingClientRect().width,otherWidth:b.getBoundingClientRect().width});
+  });
+  const deadline=setTimeout(()=>{observer.disconnect();reject(Error('Timed out: mini visual toggle'));},8000);
+  observer.observe(control,{attributes:true,attributeFilter:['data-view']});
+  control.click();
+ }));
+ if(miniBlend.duration!=='0s')assert.equal(miniBlend.animations,2,JSON.stringify(miniBlend));
  if(miniBlend.duration!=='0s')assert.ok(miniBlend.a>0&&miniBlend.a<1&&miniBlend.b>0&&miniBlend.b<1,JSON.stringify(miniBlend));
  assert.equal(miniBlend.width,miniBlend.otherWidth);assert.equal((await clock()).revision,beforeMiniSwitch.revision);matrix.push({miniBlend});
  await page.locator('.mini-time-control').evaluate(e=>e.click());await delay(200);
@@ -123,7 +139,7 @@ try{
  await page.evaluate(()=>{document.startViewTransition=window.__tracedViewTransition;});
  await invoke('set_preferences',{patch:{reduceMotion:true}});const traceLength=await page.evaluate(()=>window.__motionTrace.length);await click('#settings');await page.locator('#settings-panel').waitFor();await click('#settings-back');await page.locator('#toggle').waitFor({state:'visible'});assert.equal(await page.evaluate(()=>window.__motionTrace.length),traceLength);
  const trace=await page.evaluate(()=>window.__motionTrace);assert.ok(trace.length>=3);for(const item of trace)assert.equal(item.updates,1);matrix.push({transitions:trace});
- mark('View-transition callbacks run once, rapid mini clicks issue one native action, unavailable snapshots fall back, reduced motion bypasses animation, and timer state is preserved. Error/recording/hint footer priorities recover cleanly.');
+ mark('View-transition callbacks run once, rapid mini clicks issue one native action, unavailable snapshots fall back, reduced motion bypasses animation, and timer state is preserved. Error and hint footer priorities recover cleanly.');
  await reminder.setViewportSize({width:280,height:300});
  await reminder.evaluate(()=>{const message=document.querySelector('.reminder-message-region');message.querySelector('h1').textContent='Lange Erinnerung';message.querySelector('p:last-of-type').textContent=Array(60).fill('Eine ruhige Pause. ').join('');});
  const message=reminder.locator('.reminder-message-region');await wait(()=>message.getAttribute('data-scrollable').then(v=>v==='true'),'overflow enables message scrolling');

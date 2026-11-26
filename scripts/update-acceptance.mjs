@@ -11,9 +11,10 @@ import {root,env} from './environment.mjs';
 const read=file=>JSON.parse(readFileSync(file,'utf8')),hash=file=>createHash('sha256').update(readFileSync(file)).digest('hex');
 const build=read(path.join(root,'tmp/settings-build-current.json')),exe=path.join(build.output,'pomodoro-connected.exe');
 const evidence=path.join(build.output,'acceptance','update-'+randomUUID());mkdirSync(evidence,{recursive:true});
-const prior=read(path.join(root,'artifacts/builds/0.6.0-dev.20261107.5/delivery.json')),oldExe=path.join(root,'artifacts/builds/0.6.0-dev.20261107.5/pomodoro-connected.exe');assert.equal(hash(oldExe),prior.sha256);
-const current=read(path.join(build.output,'delivery.json'));
-for(const file of['frontend/lib/drag.ts','frontend/lib/drag-queue.ts','src-tauri/src/drag.rs'])assert.equal(current.sources[file],prior.sources[file],'touch/mouse drag implementation deliberately remains unchanged');
+const prior=read(process.env.POMODORO_PREVIOUS_INSTALLER_RECEIPT ?? path.join(root,'artifacts/installers/0.6.0-dev.20261107.5/installer.json'));
+const oldExe=process.env.POMODORO_PREVIOUS_QA_EXE ?? prior.acceptedProgram;
+assert.equal(prior.validation,'passed');
+assert.equal(hash(oldExe),prior.programSha256);
 let child,browser,page,logs='';const results=[],errors=[],fixtures=[];
 const invoke=(command,args)=>page.evaluate(({command,args})=>window.__TAURI__.core.invoke(command,args),{command,args});
 async function wait(check,label,timeout=15000){const end=Date.now()+timeout;while(Date.now()<end){if(await check())return;await delay(40);}throw Error('Timed out: '+label+' '+logs);}
@@ -56,6 +57,6 @@ try {
  const rejecting=await fixture('target-refuses-session','reject');const refused=helper(rejecting.file);assert.equal(refused.code,2);assert.equal(rejecting.process.exitCode,null,'no force kill on rejection');writeFileSync(path.join(rejecting.dir,'close'),'close');await wait(()=>rejecting.process.exitCode!==null,'refusing target normal cleanup');
  mark('Exact installed-path fallback handles an app without the endpoint; a refusal stops preparation and the process stays alive');
  assert.deepEqual(errors,[]);
- const result={passed:true,version:build.version,sha256:hash(exe),previousVersion:prior.version,previousSha256:hash(oldExe),results,errors,evidence,limits:['Runs owned hidden application/WinForms fixtures and normal Windows Restart Manager messages; no real user installation or active production instance was closed.','Touch dragging remains unchanged from the previous accepted version; physical touch latency remains unresolved.']};
+ const result={passed:true,version:build.version,sha256:hash(exe),previousVersion:prior.version,previousSha256:hash(oldExe),results,errors,evidence,limits:['Runs owned hidden application/WinForms fixtures and normal Windows Restart Manager messages; no active production instance was closed.']};
  writeFileSync(path.join(build.output,'acceptance/update-result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));
 }catch(error){writeFileSync(path.join(evidence,'failure.json'),JSON.stringify({error:String(error),stack:error.stack,results,errors,logs},null,2));try{await closeOld();}catch{}for(const f of fixtures)if(f.process.exitCode===null){writeFileSync(path.join(f.dir,'close'),'close');await wait(()=>f.process.exitCode!==null,'owned fixture cleanup').catch(()=>{});}throw error;}

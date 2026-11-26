@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 export function verifyShortcutIcons({run,helper,icon,program,version}){
  const area=path.join(run,'shortcut-icons'),installation=path.join(area,'安装 位置'),links=path.join(area,'links');mkdirSync(installation,{recursive:true});mkdirSync(links,{recursive:true});
  const exe=path.join(installation,'pomodoro-connected.exe'),versionIcon=path.join(installation,`pomodoro-app-icon-${version}.ico`);copyFileSync(program,exe);copyFileSync(icon,versionIcon);
- const launcher=path.join(installation,'start.ps1');mkdirSync(path.dirname(launcher));writeFileSync(launcher,'fixture only; never execute');
+ const launcher=path.join(installation,'start.ps1');writeFileSync(launcher,'fixture only; never execute');
  const shell='C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe',hash=f=>createHash('sha256').update(readFileSync(f)).digest('hex');
  function ps(code,extra={}){const r=spawnSync('pwsh',['-NoProfile','-Command','[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false);'+code],{windowsHide:true,encoding:'utf8',env:{...process.env,...extra},timeout:30000});assert.equal(r.status,0,r.stderr);return r.stdout.trim();}
  const spec=path.join(area,'links.json'),owned=[{path:path.join(links,'Desktop.lnk'),target:exe,args:'--keep-sentinel',icon:exe+',0'},{path:path.join(links,'Programs.lnk'),target:shell,args:`-NoProfile -File "${launcher}"`,icon:exe+',0'}];

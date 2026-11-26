@@ -33,7 +33,7 @@ const [code]=await once(child,'exit');assert.equal(code,0,'installer bundling fa
 assert.equal(hash(path.join(target,'release/pomodoro-connected.exe')),source.sha256,'bundler changed the verified executable');
 const nsis=path.join(target,'release/bundle/nsis');
 const installers=readdirSync(nsis).filter(file=>file.endsWith('-setup.exe'));assert.equal(installers.length,1);
-const installer=path.join(output,installers[0]);cpSync(path.join(nsis,installers[0]),installer);
+const installer=path.join(output,`pomodoro-tauri-${source.version}-windows-x64-setup.exe`);cpSync(path.join(nsis,installers[0]),installer);
 cpSync(configFile,path.join(output,'installer.config.json'));cpSync(path.join(root,'packaging/windows/install-hooks.nsh'),path.join(output,'install-hooks.nsh'));
 const receipt={at:new Date().toISOString(),version:source.version,installer,sha256:hash(installer),bytes:statSync(installer).size,programSha256:source.sha256,programVersion:source.productVersion,acceptedProgram:sourceExe,method:'Tauri NSIS bundle only; binary patching disabled; reuses the accepted program without relabeling',installMode:'currentUser',language:'SimpChinese',webview:'embedded bootstrapper; downloads runtime only if missing',signed:false,stage,target,validation:'pending'};
 writeFileSync(path.join(output,'installer.json'),JSON.stringify(receipt,null,2));
@@ -41,7 +41,7 @@ writeFileSync(path.join(root,'tmp/installer-current.json'),JSON.stringify(receip
 writeFileSync(path.join(output,'SHA256SUMS.txt'),`${receipt.sha256}  ${path.basename(installer)}\n`);
 writeFileSync(path.join(output,'安装说明.txt'),[
   `番茄时钟 ${source.version}`,
-  '适用：Windows 10 / Windows 11，64 位。当前为未签名开发包。',
+  '已在 Windows 11 x64 上验收。此安装包未签名。',
   ...(source.checks?.miniFooterSwitch ? ['小窗底部文案：悬停或聚焦按钮时显示按钮提示，关闭提示后恢复格致语录或计时状态。异常和待同步提醒优先。'] : []),
   ...(source.checks?.originalAudioAndCalmReminder ? [
     '原创轻柔交互音效；冥想氛围提供静心、空灵、颂钵三种离线音色。声音设置采用统一卡片，可独立开关、调节音量和试听。主窗标题栏提供静音模式按钮，保留原音量和独立开关。',

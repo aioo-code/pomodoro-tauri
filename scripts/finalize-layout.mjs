@@ -1,8 +1,9 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync, cpSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import path from 'node:path';
-import { root } from './environment.mjs';
+import { root, env } from './environment.mjs';
 
 const read = file => JSON.parse(readFileSync(file, 'utf8'));
 const hash = file => createHash('sha256').update(readFileSync(file)).digest('hex');
@@ -78,7 +79,8 @@ checks.limits.push(...scaling.limits);
 checks.limits.push(...micro.limits);
 checks.limits.push(...privateDirectory.limits);
 writeFileSync(path.join(dir, 'acceptance/verification.json'), JSON.stringify(checks, null, 2));
-delivery.acceptance = 'passed'; delivery.checks = checks; delivery.font = font;
+delivery.acceptance = 'passed'; delivery.checks = checks;
+delivery.font = read(path.join(root,'frontend/public/fonts/font-source.json'));
 const iconChoices=read(path.join(root,'src-tauri/icons/choices/manifest.json'));
 assert.equal(iconChoices.length,5);
 mkdirSync(path.join(dir,'icons'),{recursive:true});
@@ -86,7 +88,16 @@ for(const icon of iconChoices){
   const source=path.join(root,'frontend/assets/icons',icon.id+'.svg');assert.equal(hash(source),icon.sourceSha256);
   for(const asset of Object.values(icon.assets))assert.equal(hash(path.join(root,'src-tauri/icons/choices',asset.file)),asset.sha256);
   cpSync(source,path.join(dir,'icons',icon.id+'.svg'));
-  if (icon.id === 'flow') cpSync(path.join(root,'src-tauri/icons/icon.ico'),path.join(dir,'icons/flow.ico'));
+  const ico = path.join(dir,'icons',icon.id+'.ico');
+  if (icon.id === 'flow') {
+    cpSync(path.join(root,'src-tauri/icons/icon.ico'),ico);
+  } else {
+    const output = path.join(dir,'icon-build',icon.id);
+    const result = spawnSync(process.execPath, [path.join(root,'scripts/tauri.mjs'),'icon',source,'--output',output], {cwd:root,env,encoding:'utf8',windowsHide:true});
+    if (result.error) throw result.error;
+    assert.equal(result.status,0,result.stderr);
+    cpSync(path.join(output,'icon.ico'),ico);
+  }
   const preview=path.join(root,'src-tauri/icons/choices',icon.id+'-128.png');
   assert.equal(hash(preview),delivery.sources['src-tauri/icons/choices/'+icon.id+'-128.png']);
   cpSync(preview,path.join(dir,'icons',icon.id+'.png'));

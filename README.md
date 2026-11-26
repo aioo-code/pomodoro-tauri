@@ -4,13 +4,15 @@
 
 番茄时钟是 Windows 桌面应用。专注和休息各有独立的进度，切换时段后可以回到原处继续。设置、导入的声音和近 30 天的专注记录都保存在本机。
 
-[安装与上手](#安装与上手) · [从源码运行](#从源码运行) · [参与贡献](CONTRIBUTING.md)
+[下载 Windows 安装包](https://github.com/aioo-code/pomodoro-tauri/releases/latest) · [安装与上手](#安装与上手) · [从源码运行](#从源码运行) · [参与贡献](CONTRIBUTING.md)
 
 <img src="docs/images/windows-timer.png" width="400" alt="番茄时钟的 Windows 主窗，显示 25 分钟专注倒计时、常用时长、开始按钮和近 30 天专注热力图">
 
 ## 安装与上手
 
-当前可[从源码运行](#从源码运行)或构建 Windows 可执行文件。已在 **Windows 11 x64** 上验收，运行需要 Microsoft Edge WebView2 Runtime。
+从 GitHub Releases [下载 0.6.0 Windows x64 安装包](https://github.com/aioo-code/pomodoro-tauri/releases/download/v0.6.0/pomodoro-tauri-0.6.0-windows-x64-setup.exe)。安装包未签名，可用发行页的 [SHA256SUMS.txt](https://github.com/aioo-code/pomodoro-tauri/releases/download/v0.6.0/SHA256SUMS.txt) 核对下载文件。
+
+已在 **Windows 11 x64** 上验收。应用需要 Microsoft Edge WebView2 Runtime，安装器会在缺少运行时时联网安装。
 
 1. 在主窗选择「专注」或「休息」。默认分别为 25 分钟和 5 分钟。
 2. 从「常用时长」选一个预设，或拖动计时盘调整剩余时间。点「开始专注」或「开始休息」启动计时。
